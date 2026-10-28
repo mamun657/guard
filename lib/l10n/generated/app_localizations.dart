@@ -925,6 +925,1086 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'AmarGuard could not start. Please try again.'**
   String get firebaseUnavailableFallback;
+
+  /// No description provided for @careTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Safety'**
+  String get careTitle;
+
+  /// No description provided for @careTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Stay connected with the people you trust. You stay in control at all times.'**
+  String get careTagline;
+
+  /// No description provided for @careBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get careBack;
+
+  /// No description provided for @careSharingActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Sharing active'**
+  String get careSharingActive;
+
+  /// No description provided for @careSharingPaused.
+  ///
+  /// In en, this message translates to:
+  /// **'Sharing paused'**
+  String get careSharingPaused;
+
+  /// No description provided for @careSharingStopped.
+  ///
+  /// In en, this message translates to:
+  /// **'Sharing stopped'**
+  String get careSharingStopped;
+
+  /// No description provided for @careSharingNotConfigured.
+  ///
+  /// In en, this message translates to:
+  /// **'Not configured yet'**
+  String get careSharingNotConfigured;
+
+  /// No description provided for @carePermissionDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission disabled'**
+  String get carePermissionDisabled;
+
+  /// No description provided for @careMyDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'My Device'**
+  String get careMyDevice;
+
+  /// No description provided for @careDeviceIdentifier.
+  ///
+  /// In en, this message translates to:
+  /// **'Device ID'**
+  String get careDeviceIdentifier;
+
+  /// No description provided for @careCurrentLocationPermission.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission'**
+  String get careCurrentLocationPermission;
+
+  /// No description provided for @careLastSync.
+  ///
+  /// In en, this message translates to:
+  /// **'Last successful sync'**
+  String get careLastSync;
+
+  /// No description provided for @careBattery.
+  ///
+  /// In en, this message translates to:
+  /// **'Battery'**
+  String get careBattery;
+
+  /// No description provided for @careStartSharing.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Sharing'**
+  String get careStartSharing;
+
+  /// No description provided for @carePauseSharing.
+  ///
+  /// In en, this message translates to:
+  /// **'Pause Sharing'**
+  String get carePauseSharing;
+
+  /// No description provided for @careResumeSharing.
+  ///
+  /// In en, this message translates to:
+  /// **'Resume Sharing'**
+  String get careResumeSharing;
+
+  /// No description provided for @careStopSharing.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop Sharing'**
+  String get careStopSharing;
+
+  /// No description provided for @careConnectedMembers.
+  ///
+  /// In en, this message translates to:
+  /// **'Connected Family Members'**
+  String get careConnectedMembers;
+
+  /// No description provided for @careAddMember.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Family Member'**
+  String get careAddMember;
+
+  /// No description provided for @careViewMap.
+  ///
+  /// In en, this message translates to:
+  /// **'View Family Map'**
+  String get careViewMap;
+
+  /// No description provided for @carePrivacySettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Sharing & Privacy'**
+  String get carePrivacySettings;
+
+  /// No description provided for @careNoMembers.
+  ///
+  /// In en, this message translates to:
+  /// **'No family members connected yet'**
+  String get careNoMembers;
+
+  /// No description provided for @careNoMembersBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Create an invitation and ask a trusted family member to connect.'**
+  String get careNoMembersBody;
+
+  /// No description provided for @careMemberFreshness.
+  ///
+  /// In en, this message translates to:
+  /// **'Last known location'**
+  String get careMemberFreshness;
+
+  /// No description provided for @careMemberFreshnessFresh.
+  ///
+  /// In en, this message translates to:
+  /// **'Recently updated'**
+  String get careMemberFreshnessFresh;
+
+  /// No description provided for @careMemberFreshnessStale.
+  ///
+  /// In en, this message translates to:
+  /// **'Last Known Location'**
+  String get careMemberFreshnessStale;
+
+  /// No description provided for @careMemberFreshnessUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Offline or unavailable'**
+  String get careMemberFreshnessUnavailable;
+
+  /// No description provided for @careMemberFreshnessPaused.
+  ///
+  /// In en, this message translates to:
+  /// **'Sharing paused'**
+  String get careMemberFreshnessPaused;
+
+  /// No description provided for @careMemberFreshnessNotConnected.
+  ///
+  /// In en, this message translates to:
+  /// **'Not connected'**
+  String get careMemberFreshnessNotConnected;
+
+  /// No description provided for @careMemberFreshnessNotConfigured.
+  ///
+  /// In en, this message translates to:
+  /// **'Not yet configured'**
+  String get careMemberFreshnessNotConfigured;
+
+  /// No description provided for @careMemberFreshnessPermissionDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Permission disabled'**
+  String get careMemberFreshnessPermissionDisabled;
+
+  /// No description provided for @careLastSeen.
+  ///
+  /// In en, this message translates to:
+  /// **'Last seen'**
+  String get careLastSeen;
+
+  /// No description provided for @careRelationship.
+  ///
+  /// In en, this message translates to:
+  /// **'Relationship'**
+  String get careRelationship;
+
+  /// No description provided for @careBatteryLow.
+  ///
+  /// In en, this message translates to:
+  /// **'Battery Low'**
+  String get careBatteryLow;
+
+  /// No description provided for @careBatteryCritical.
+  ///
+  /// In en, this message translates to:
+  /// **'Battery critically low'**
+  String get careBatteryCritical;
+
+  /// No description provided for @careCharging.
+  ///
+  /// In en, this message translates to:
+  /// **'Charging'**
+  String get careCharging;
+
+  /// No description provided for @careNotCharging.
+  ///
+  /// In en, this message translates to:
+  /// **'Not charging'**
+  String get careNotCharging;
+
+  /// No description provided for @careNever.
+  ///
+  /// In en, this message translates to:
+  /// **'Never'**
+  String get careNever;
+
+  /// No description provided for @careJustNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Just now'**
+  String get careJustNow;
+
+  /// No description provided for @careMinutesAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} min ago'**
+  String careMinutesAgo(int count);
+
+  /// No description provided for @careHoursAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} h ago'**
+  String careHoursAgo(int count);
+
+  /// No description provided for @careDaysAgo.
+  ///
+  /// In en, this message translates to:
+  /// **'{count} d ago'**
+  String careDaysAgo(int count);
+
+  /// No description provided for @careFamilyMembersTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Members'**
+  String get careFamilyMembersTitle;
+
+  /// No description provided for @careFamilyMembersSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'People you have approved to view your location'**
+  String get careFamilyMembersSubtitle;
+
+  /// No description provided for @careAddFamilyMemberTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Add Family Member'**
+  String get careAddFamilyMemberTitle;
+
+  /// No description provided for @careAddFamilyMemberSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Invite someone you trust to see your location'**
+  String get careAddFamilyMemberSubtitle;
+
+  /// No description provided for @careGenerateInvitation.
+  ///
+  /// In en, this message translates to:
+  /// **'Generate Invitation'**
+  String get careGenerateInvitation;
+
+  /// No description provided for @careCopyInvitationLink.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy Invitation Link'**
+  String get careCopyInvitationLink;
+
+  /// No description provided for @careShareInvitation.
+  ///
+  /// In en, this message translates to:
+  /// **'Share Invitation'**
+  String get careShareInvitation;
+
+  /// No description provided for @careEnterInvitationCode.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter Invitation Code'**
+  String get careEnterInvitationCode;
+
+  /// No description provided for @carePendingRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending Requests'**
+  String get carePendingRequests;
+
+  /// No description provided for @careInvitationCodeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Your invitation code'**
+  String get careInvitationCodeLabel;
+
+  /// No description provided for @careInvitationExpiresIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Expires in {hours} h {minutes} min'**
+  String careInvitationExpiresIn(int hours, int minutes);
+
+  /// No description provided for @careInvitationExpired.
+  ///
+  /// In en, this message translates to:
+  /// **'This invitation has expired.'**
+  String get careInvitationExpired;
+
+  /// No description provided for @careInvitationSafetyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Only share this code with someone you trust. The code itself never grants access to your location.'**
+  String get careInvitationSafetyNote;
+
+  /// No description provided for @careInvitationCodeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter the code you received'**
+  String get careInvitationCodeHint;
+
+  /// No description provided for @careInvitationCodeEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Please enter an invitation code.'**
+  String get careInvitationCodeEmpty;
+
+  /// No description provided for @careInvitationNotFound.
+  ///
+  /// In en, this message translates to:
+  /// **'No invitation found for that code.'**
+  String get careInvitationNotFound;
+
+  /// No description provided for @careInvitationCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Invitation code copied.'**
+  String get careInvitationCopied;
+
+  /// No description provided for @careInvitationShared.
+  ///
+  /// In en, this message translates to:
+  /// **'Invitation shared.'**
+  String get careInvitationShared;
+
+  /// No description provided for @careConnectionRequestTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Connection Request'**
+  String get careConnectionRequestTitle;
+
+  /// No description provided for @careRequestedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'Requested by'**
+  String get careRequestedBy;
+
+  /// No description provided for @careIntendedConnection.
+  ///
+  /// In en, this message translates to:
+  /// **'Intended connection'**
+  String get careIntendedConnection;
+
+  /// No description provided for @careRequestedCapabilities.
+  ///
+  /// In en, this message translates to:
+  /// **'Requested access'**
+  String get careRequestedCapabilities;
+
+  /// No description provided for @carePrivacyDisclosure.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy disclosure'**
+  String get carePrivacyDisclosure;
+
+  /// No description provided for @carePrivacyDisclosureBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Approving this request lets the person view your shared device location, battery level and last update time. You can revoke this access at any time from Sharing & Privacy.'**
+  String get carePrivacyDisclosureBody;
+
+  /// No description provided for @careApprove.
+  ///
+  /// In en, this message translates to:
+  /// **'Approve'**
+  String get careApprove;
+
+  /// No description provided for @careReject.
+  ///
+  /// In en, this message translates to:
+  /// **'Reject'**
+  String get careReject;
+
+  /// No description provided for @careRequestApproved.
+  ///
+  /// In en, this message translates to:
+  /// **'Request approved.'**
+  String get careRequestApproved;
+
+  /// No description provided for @careRequestRejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Request rejected.'**
+  String get careRequestRejected;
+
+  /// No description provided for @careJoinFamilyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Join Family Safety'**
+  String get careJoinFamilyTitle;
+
+  /// No description provided for @careJoinFamilySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'You have been invited to connect on AmarGuard.'**
+  String get careJoinFamilySubtitle;
+
+  /// No description provided for @careAcceptInvitation.
+  ///
+  /// In en, this message translates to:
+  /// **'Accept Invitation'**
+  String get careAcceptInvitation;
+
+  /// No description provided for @careDeclineInvitation.
+  ///
+  /// In en, this message translates to:
+  /// **'Decline'**
+  String get careDeclineInvitation;
+
+  /// No description provided for @careInvitationAccepted.
+  ///
+  /// In en, this message translates to:
+  /// **'Request sent to the device owner. Location access stays blocked until they approve it.'**
+  String get careInvitationAccepted;
+
+  /// No description provided for @careJoinPrivacyDisclosureBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Sending this request does not give you location access. The device owner must review and approve it first. You can cancel later from Family Safety.'**
+  String get careJoinPrivacyDisclosureBody;
+
+  /// No description provided for @careSelfInvitation.
+  ///
+  /// In en, this message translates to:
+  /// **'You cannot join using your own invitation. Sign in with a different AmarGuard account.'**
+  String get careSelfInvitation;
+
+  /// No description provided for @careInvitationClosed.
+  ///
+  /// In en, this message translates to:
+  /// **'This invitation is no longer open.'**
+  String get careInvitationClosed;
+
+  /// No description provided for @careInvitationInvalid.
+  ///
+  /// In en, this message translates to:
+  /// **'This invitation is missing required device information.'**
+  String get careInvitationInvalid;
+
+  /// No description provided for @careRequestAlreadyPending.
+  ///
+  /// In en, this message translates to:
+  /// **'A request is already waiting for the device owner\'s approval.'**
+  String get careRequestAlreadyPending;
+
+  /// No description provided for @careRequestAlreadyProcessed.
+  ///
+  /// In en, this message translates to:
+  /// **'This invitation request was already processed.'**
+  String get careRequestAlreadyProcessed;
+
+  /// No description provided for @careInvitationPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'You do not have permission to send this request.'**
+  String get careInvitationPermissionDenied;
+
+  /// No description provided for @careWhatYouCanSee.
+  ///
+  /// In en, this message translates to:
+  /// **'What you can see'**
+  String get careWhatYouCanSee;
+
+  /// No description provided for @careCapabilityLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Live location with permission'**
+  String get careCapabilityLocation;
+
+  /// No description provided for @careCapabilityBattery.
+  ///
+  /// In en, this message translates to:
+  /// **'Battery status'**
+  String get careCapabilityBattery;
+
+  /// No description provided for @careCapabilityLastSeen.
+  ///
+  /// In en, this message translates to:
+  /// **'Last seen time'**
+  String get careCapabilityLastSeen;
+
+  /// No description provided for @careCapabilityDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Device name'**
+  String get careCapabilityDevice;
+
+  /// No description provided for @carePermissionTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Location Sharing'**
+  String get carePermissionTitle;
+
+  /// No description provided for @carePermissionSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Review what AmarGuard needs before it can share your location.'**
+  String get carePermissionSubtitle;
+
+  /// No description provided for @carePermissionServiceOn.
+  ///
+  /// In en, this message translates to:
+  /// **'Location service is on'**
+  String get carePermissionServiceOn;
+
+  /// No description provided for @carePermissionServiceOff.
+  ///
+  /// In en, this message translates to:
+  /// **'Location service is off'**
+  String get carePermissionServiceOff;
+
+  /// No description provided for @carePermissionForeground.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow while using the app'**
+  String get carePermissionForeground;
+
+  /// No description provided for @carePermissionBackground.
+  ///
+  /// In en, this message translates to:
+  /// **'Background access'**
+  String get carePermissionBackground;
+
+  /// No description provided for @carePermissionBackgroundBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Android requires you to allow \"Allow all the time\" in system settings so the app can keep sharing while closed.'**
+  String get carePermissionBackgroundBody;
+
+  /// No description provided for @carePermissionBackgroundGranted.
+  ///
+  /// In en, this message translates to:
+  /// **'Background access granted'**
+  String get carePermissionBackgroundGranted;
+
+  /// No description provided for @carePermissionBackgroundDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Background access not granted'**
+  String get carePermissionBackgroundDenied;
+
+  /// No description provided for @carePermissionPrecision.
+  ///
+  /// In en, this message translates to:
+  /// **'Location precision'**
+  String get carePermissionPrecision;
+
+  /// No description provided for @carePermissionPrecisionPrecise.
+  ///
+  /// In en, this message translates to:
+  /// **'Precise'**
+  String get carePermissionPrecisionPrecise;
+
+  /// No description provided for @carePermissionPrecisionApproximate.
+  ///
+  /// In en, this message translates to:
+  /// **'Approximate'**
+  String get carePermissionPrecisionApproximate;
+
+  /// No description provided for @carePermissionNotification.
+  ///
+  /// In en, this message translates to:
+  /// **'Foreground notification'**
+  String get carePermissionNotification;
+
+  /// No description provided for @carePermissionNotificationBody.
+  ///
+  /// In en, this message translates to:
+  /// **'A persistent notification is shown while sharing is active. It cannot be hidden.'**
+  String get carePermissionNotificationBody;
+
+  /// No description provided for @carePermissionOpenSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Open system settings'**
+  String get carePermissionOpenSettings;
+
+  /// No description provided for @carePermissionGrant.
+  ///
+  /// In en, this message translates to:
+  /// **'Grant permission'**
+  String get carePermissionGrant;
+
+  /// No description provided for @carePermissionCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get carePermissionCancel;
+
+  /// No description provided for @carePermissionContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get carePermissionContinue;
+
+  /// No description provided for @carePermissionGranted.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission granted.'**
+  String get carePermissionGranted;
+
+  /// No description provided for @carePermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Location permission was denied.'**
+  String get carePermissionDenied;
+
+  /// No description provided for @careMapTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Map'**
+  String get careMapTitle;
+
+  /// No description provided for @careMapRecenter.
+  ///
+  /// In en, this message translates to:
+  /// **'Recenter'**
+  String get careMapRecenter;
+
+  /// No description provided for @careMapZoomIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Zoom in'**
+  String get careMapZoomIn;
+
+  /// No description provided for @careMapZoomOut.
+  ///
+  /// In en, this message translates to:
+  /// **'Zoom out'**
+  String get careMapZoomOut;
+
+  /// No description provided for @careMapNoMembers.
+  ///
+  /// In en, this message translates to:
+  /// **'No approved family locations yet'**
+  String get careMapNoMembers;
+
+  /// No description provided for @careMapNoMembersBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Once a family member approves a connection and enables sharing, their location appears here.'**
+  String get careMapNoMembersBody;
+
+  /// No description provided for @careMapTilesUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Map tiles are unavailable. Coordinates are still shown below.'**
+  String get careMapTilesUnavailable;
+
+  /// No description provided for @careMapAttribution.
+  ///
+  /// In en, this message translates to:
+  /// **'© OpenStreetMap contributors'**
+  String get careMapAttribution;
+
+  /// No description provided for @careMapOpenInMaps.
+  ///
+  /// In en, this message translates to:
+  /// **'Open in Maps'**
+  String get careMapOpenInMaps;
+
+  /// No description provided for @careMapCoordinates.
+  ///
+  /// In en, this message translates to:
+  /// **'Coordinates'**
+  String get careMapCoordinates;
+
+  /// No description provided for @careMapAccuracy.
+  ///
+  /// In en, this message translates to:
+  /// **'Accuracy'**
+  String get careMapAccuracy;
+
+  /// No description provided for @careMapLastUpdate.
+  ///
+  /// In en, this message translates to:
+  /// **'Last update'**
+  String get careMapLastUpdate;
+
+  /// No description provided for @careMemberDetailsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Member Details'**
+  String get careMemberDetailsTitle;
+
+  /// No description provided for @careDeviceNickname.
+  ///
+  /// In en, this message translates to:
+  /// **'Device name'**
+  String get careDeviceNickname;
+
+  /// No description provided for @careCoordinates.
+  ///
+  /// In en, this message translates to:
+  /// **'Coordinates'**
+  String get careCoordinates;
+
+  /// No description provided for @careCaptureTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Location captured'**
+  String get careCaptureTime;
+
+  /// No description provided for @careSyncTime.
+  ///
+  /// In en, this message translates to:
+  /// **'Last synchronized'**
+  String get careSyncTime;
+
+  /// No description provided for @careLiveStatus.
+  ///
+  /// In en, this message translates to:
+  /// **'Location status'**
+  String get careLiveStatus;
+
+  /// No description provided for @careOpenInMaps.
+  ///
+  /// In en, this message translates to:
+  /// **'Open location in a map app'**
+  String get careOpenInMaps;
+
+  /// No description provided for @careNoLocationYet.
+  ///
+  /// In en, this message translates to:
+  /// **'No location received yet'**
+  String get careNoLocationYet;
+
+  /// No description provided for @careNoLocationYetBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This member has not shared a location yet. Their last known location will appear here once they enable sharing.'**
+  String get careNoLocationYetBody;
+
+  /// No description provided for @carePrivacyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sharing & Privacy'**
+  String get carePrivacyTitle;
+
+  /// No description provided for @carePrivacyWhoCanView.
+  ///
+  /// In en, this message translates to:
+  /// **'Who can view my location'**
+  String get carePrivacyWhoCanView;
+
+  /// No description provided for @carePrivacyWhoCanViewBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Only the family members you explicitly approve can read your shared location.'**
+  String get carePrivacyWhoCanViewBody;
+
+  /// No description provided for @carePrivacyActiveSessions.
+  ///
+  /// In en, this message translates to:
+  /// **'Active sharing sessions'**
+  String get carePrivacyActiveSessions;
+
+  /// No description provided for @carePrivacyDeviceControls.
+  ///
+  /// In en, this message translates to:
+  /// **'Device sharing controls'**
+  String get carePrivacyDeviceControls;
+
+  /// No description provided for @carePrivacyPermissionSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Permission settings'**
+  String get carePrivacyPermissionSettings;
+
+  /// No description provided for @carePrivacyInformation.
+  ///
+  /// In en, this message translates to:
+  /// **'Privacy information'**
+  String get carePrivacyInformation;
+
+  /// No description provided for @carePrivacyInformationBody.
+  ///
+  /// In en, this message translates to:
+  /// **'AmarGuard Care never collects location without your consent. Sharing is visible through a persistent Android notification, and you can pause, stop or revoke access at any time.'**
+  String get carePrivacyInformationBody;
+
+  /// No description provided for @careRevokeAccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Revoke Access'**
+  String get careRevokeAccess;
+
+  /// No description provided for @careRevokeConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Revoke access?'**
+  String get careRevokeConfirmTitle;
+
+  /// No description provided for @careRevokeConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This family member will no longer be able to read your location. You can approve a new request later.'**
+  String get careRevokeConfirmBody;
+
+  /// No description provided for @careRevokeDone.
+  ///
+  /// In en, this message translates to:
+  /// **'Access revoked.'**
+  String get careRevokeDone;
+
+  /// No description provided for @careStopConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop sharing?'**
+  String get careStopConfirmTitle;
+
+  /// No description provided for @careStopConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your location will no longer be collected or sent. Approved members will keep the last location they already received.'**
+  String get careStopConfirmBody;
+
+  /// No description provided for @careRemoveInvitation.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove invitation'**
+  String get careRemoveInvitation;
+
+  /// No description provided for @careRemoveInvitationConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Remove this invitation?'**
+  String get careRemoveInvitationConfirm;
+
+  /// No description provided for @careRemoveInvitationBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Nobody with this code will be able to request a new connection.'**
+  String get careRemoveInvitationBody;
+
+  /// No description provided for @careCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get careCancel;
+
+  /// No description provided for @careConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm'**
+  String get careConfirm;
+
+  /// No description provided for @careGuestBlockedTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to use Family Safety'**
+  String get careGuestBlockedTitle;
+
+  /// No description provided for @careGuestBlockedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Guest mode cannot create or approve family connections. Sign in with your AmarGuard account to share your location with trusted family members.'**
+  String get careGuestBlockedBody;
+
+  /// No description provided for @careSharingStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Location sharing started.'**
+  String get careSharingStarted;
+
+  /// No description provided for @careSharingPausedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Location sharing paused.'**
+  String get careSharingPausedMessage;
+
+  /// No description provided for @careSharingStoppedMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Location sharing stopped.'**
+  String get careSharingStoppedMessage;
+
+  /// No description provided for @careSharingStartFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not start sharing. Check location permission and GPS.'**
+  String get careSharingStartFailed;
+
+  /// No description provided for @careLowBatteryAlert.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} has low battery ({percent}%)'**
+  String careLowBatteryAlert(String name, int percent);
+
+  /// No description provided for @careCriticalBatteryAlert.
+  ///
+  /// In en, this message translates to:
+  /// **'{name} battery is critically low ({percent}%)'**
+  String careCriticalBatteryAlert(String name, int percent);
+
+  /// No description provided for @careGpsOff.
+  ///
+  /// In en, this message translates to:
+  /// **'GPS is turned off on this device.'**
+  String get careGpsOff;
+
+  /// No description provided for @careRenameDevice.
+  ///
+  /// In en, this message translates to:
+  /// **'Rename device'**
+  String get careRenameDevice;
+
+  /// No description provided for @careRenameDeviceHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Device name'**
+  String get careRenameDeviceHint;
+
+  /// No description provided for @careSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save'**
+  String get careSave;
+
+  /// No description provided for @careRelationshipParent.
+  ///
+  /// In en, this message translates to:
+  /// **'Parent'**
+  String get careRelationshipParent;
+
+  /// No description provided for @careRelationshipChild.
+  ///
+  /// In en, this message translates to:
+  /// **'Child'**
+  String get careRelationshipChild;
+
+  /// No description provided for @careRelationshipSpouse.
+  ///
+  /// In en, this message translates to:
+  /// **'Spouse'**
+  String get careRelationshipSpouse;
+
+  /// No description provided for @careRelationshipSibling.
+  ///
+  /// In en, this message translates to:
+  /// **'Sibling'**
+  String get careRelationshipSibling;
+
+  /// No description provided for @careRelationshipGuardian.
+  ///
+  /// In en, this message translates to:
+  /// **'Guardian'**
+  String get careRelationshipGuardian;
+
+  /// No description provided for @careRelationshipCaregiver.
+  ///
+  /// In en, this message translates to:
+  /// **'Caregiver'**
+  String get careRelationshipCaregiver;
+
+  /// No description provided for @careRelationshipFriend.
+  ///
+  /// In en, this message translates to:
+  /// **'Friend'**
+  String get careRelationshipFriend;
+
+  /// No description provided for @careRelationshipOther.
+  ///
+  /// In en, this message translates to:
+  /// **'Other'**
+  String get careRelationshipOther;
+
+  /// No description provided for @careInvitationOwner.
+  ///
+  /// In en, this message translates to:
+  /// **'Invited by {name}'**
+  String careInvitationOwner(String name);
+
+  /// No description provided for @careRequestStatusPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get careRequestStatusPending;
+
+  /// No description provided for @careRequestStatusApproved.
+  ///
+  /// In en, this message translates to:
+  /// **'Approved'**
+  String get careRequestStatusApproved;
+
+  /// No description provided for @careRequestStatusRejected.
+  ///
+  /// In en, this message translates to:
+  /// **'Rejected'**
+  String get careRequestStatusRejected;
+
+  /// No description provided for @careWatchedBy.
+  ///
+  /// In en, this message translates to:
+  /// **'You can view {count} family member'**
+  String careWatchedBy(int count);
+
+  /// No description provided for @careWatchedByPlural.
+  ///
+  /// In en, this message translates to:
+  /// **'You can view {count} family members'**
+  String careWatchedByPlural(int count);
+
+  /// No description provided for @careSharingTo.
+  ///
+  /// In en, this message translates to:
+  /// **'Sharing with {count} approved member'**
+  String careSharingTo(int count);
+
+  /// No description provided for @careSharingToPlural.
+  ///
+  /// In en, this message translates to:
+  /// **'Sharing with {count} approved members'**
+  String careSharingToPlural(int count);
+
+  /// No description provided for @careLocationSharing.
+  ///
+  /// In en, this message translates to:
+  /// **'Location sharing'**
+  String get careLocationSharing;
+
+  /// No description provided for @careLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
+  String get careLoading;
+
+  /// No description provided for @careRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Retry'**
+  String get careRetry;
+
+  /// No description provided for @careOpenSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Open settings'**
+  String get careOpenSettings;
+
+  /// No description provided for @careMemberSince.
+  ///
+  /// In en, this message translates to:
+  /// **'Connected since {date}'**
+  String careMemberSince(String date);
 }
 
 class _AppLocalizationsDelegate

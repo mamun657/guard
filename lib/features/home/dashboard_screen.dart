@@ -12,11 +12,13 @@ class DashboardScreen extends StatelessWidget {
     required this.displayName,
     required this.onMenuPressed,
     required this.onNotificationsPressed,
+    required this.onFamilySafetyPressed,
   });
 
   final String displayName;
   final VoidCallback onMenuPressed;
   final VoidCallback onNotificationsPressed;
+  final VoidCallback onFamilySafetyPressed;
 
   String _firstName(String name) {
     final cleaned = name.trim();
@@ -106,6 +108,7 @@ class DashboardScreen extends StatelessWidget {
             _QuickActionsGrid(
               titleStyle: titleStyle,
               descriptionStyle: descriptionStyle,
+              onFamilySafetyPressed: onFamilySafetyPressed,
             ),
             const SizedBox(height: 24),
             _StayAlertBanner(
@@ -486,10 +489,12 @@ class _QuickActionsGrid extends StatelessWidget {
   const _QuickActionsGrid({
     required this.titleStyle,
     required this.descriptionStyle,
+    required this.onFamilySafetyPressed,
   });
 
   final TextStyle? titleStyle;
   final TextStyle? descriptionStyle;
+  final VoidCallback onFamilySafetyPressed;
 
   @override
   Widget build(BuildContext context) {
@@ -509,13 +514,21 @@ class _QuickActionsGrid extends StatelessWidget {
                       service: s,
                       titleStyle: titleStyle,
                       descriptionStyle: descriptionStyle,
-                      onTap: () => MaintenanceSheet.show(context, service: s),
+                      onTap: () => _handleServiceTap(context, s),
                     ),
                   ))
               .toList(),
         );
       },
     );
+  }
+
+  void _handleServiceTap(BuildContext context, ServiceDefinition service) {
+    if (service.key == ServiceKey.familySafety) {
+      onFamilySafetyPressed();
+      return;
+    }
+    MaintenanceSheet.show(context, service: service);
   }
 }
 

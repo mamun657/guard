@@ -19,6 +19,13 @@ dependencies:
   cloud_firestore: ^6.10.0
   shared_preferences: ^2.5.5
   intl: any
+  flutter_map: ^8.3.2
+  latlong2: ^0.10.1
+  geolocator: ^14.1.2
+  geocoding: ^5.0.0
+  battery_plus: ^7.1.2
+  share_plus: ^13.3.1
+  app_links: ^7.2.2
 
 dev_dependencies:
   flutter_test:

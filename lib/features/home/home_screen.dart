@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -6,6 +7,7 @@ import '../../core/theme/app_colors.dart';
 import '../../data/services/auth_service.dart';
 import '../../data/services/local_prefs.dart';
 import '../../l10n/generated/app_localizations.dart';
+import '../family_safety/family_safety_launcher.dart';
 import 'dashboard_screen.dart';
 import 'widgets/placeholder_screen.dart';
 
@@ -69,6 +71,15 @@ class _HomeScreenState extends State<HomeScreen> {
             l10n.snackNotificationsTitle,
             l10n.snackNotificationsBody,
           ),
+          onFamilySafetyPressed: () {
+            FamilySafetyLauncher.open(
+              context,
+              isGuest: _isGuest,
+              prefs: widget.prefs.preferences,
+              auth: FirebaseAuth.instance,
+              firestore: FirebaseFirestore.instance,
+            );
+          },
         ),
       ),
       _TabSpec(body: const AnalyzeCallPage()),

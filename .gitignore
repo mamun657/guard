@@ -46,3 +46,26 @@ app.*.map.json
 
 # Widget Preview related
 .widget_preview/
+
+# Node tooling
+/node_modules/
+/package-lock.json
+
+# Local editor and agent worktrees
+/.kilo/
+/.vscode/
+
+# Python backend
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/.pytest_cache/
+backend/.env
+backend/*.db
+*.py[cod]
+
+# Firebase emulator runtime
+.emulator/
+firebase-debug.log
+ui-debug.log
+firestore-debug.log

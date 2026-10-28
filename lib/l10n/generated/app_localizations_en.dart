@@ -441,4 +441,595 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get firebaseUnavailableFallback =>
       'AmarGuard could not start. Please try again.';
+
+  @override
+  String get careTitle => 'Family Safety';
+
+  @override
+  String get careTagline =>
+      'Stay connected with the people you trust. You stay in control at all times.';
+
+  @override
+  String get careBack => 'Back';
+
+  @override
+  String get careSharingActive => 'Sharing active';
+
+  @override
+  String get careSharingPaused => 'Sharing paused';
+
+  @override
+  String get careSharingStopped => 'Sharing stopped';
+
+  @override
+  String get careSharingNotConfigured => 'Not configured yet';
+
+  @override
+  String get carePermissionDisabled => 'Location permission disabled';
+
+  @override
+  String get careMyDevice => 'My Device';
+
+  @override
+  String get careDeviceIdentifier => 'Device ID';
+
+  @override
+  String get careCurrentLocationPermission => 'Location permission';
+
+  @override
+  String get careLastSync => 'Last successful sync';
+
+  @override
+  String get careBattery => 'Battery';
+
+  @override
+  String get careStartSharing => 'Start Sharing';
+
+  @override
+  String get carePauseSharing => 'Pause Sharing';
+
+  @override
+  String get careResumeSharing => 'Resume Sharing';
+
+  @override
+  String get careStopSharing => 'Stop Sharing';
+
+  @override
+  String get careConnectedMembers => 'Connected Family Members';
+
+  @override
+  String get careAddMember => 'Add Family Member';
+
+  @override
+  String get careViewMap => 'View Family Map';
+
+  @override
+  String get carePrivacySettings => 'Sharing & Privacy';
+
+  @override
+  String get careNoMembers => 'No family members connected yet';
+
+  @override
+  String get careNoMembersBody =>
+      'Create an invitation and ask a trusted family member to connect.';
+
+  @override
+  String get careMemberFreshness => 'Last known location';
+
+  @override
+  String get careMemberFreshnessFresh => 'Recently updated';
+
+  @override
+  String get careMemberFreshnessStale => 'Last Known Location';
+
+  @override
+  String get careMemberFreshnessUnavailable => 'Offline or unavailable';
+
+  @override
+  String get careMemberFreshnessPaused => 'Sharing paused';
+
+  @override
+  String get careMemberFreshnessNotConnected => 'Not connected';
+
+  @override
+  String get careMemberFreshnessNotConfigured => 'Not yet configured';
+
+  @override
+  String get careMemberFreshnessPermissionDisabled => 'Permission disabled';
+
+  @override
+  String get careLastSeen => 'Last seen';
+
+  @override
+  String get careRelationship => 'Relationship';
+
+  @override
+  String get careBatteryLow => 'Battery Low';
+
+  @override
+  String get careBatteryCritical => 'Battery critically low';
+
+  @override
+  String get careCharging => 'Charging';
+
+  @override
+  String get careNotCharging => 'Not charging';
+
+  @override
+  String get careNever => 'Never';
+
+  @override
+  String get careJustNow => 'Just now';
+
+  @override
+  String careMinutesAgo(int count) {
+    return '$count min ago';
+  }
+
+  @override
+  String careHoursAgo(int count) {
+    return '$count h ago';
+  }
+
+  @override
+  String careDaysAgo(int count) {
+    return '$count d ago';
+  }
+
+  @override
+  String get careFamilyMembersTitle => 'Family Members';
+
+  @override
+  String get careFamilyMembersSubtitle =>
+      'People you have approved to view your location';
+
+  @override
+  String get careAddFamilyMemberTitle => 'Add Family Member';
+
+  @override
+  String get careAddFamilyMemberSubtitle =>
+      'Invite someone you trust to see your location';
+
+  @override
+  String get careGenerateInvitation => 'Generate Invitation';
+
+  @override
+  String get careCopyInvitationLink => 'Copy Invitation Link';
+
+  @override
+  String get careShareInvitation => 'Share Invitation';
+
+  @override
+  String get careEnterInvitationCode => 'Enter Invitation Code';
+
+  @override
+  String get carePendingRequests => 'Pending Requests';
+
+  @override
+  String get careInvitationCodeLabel => 'Your invitation code';
+
+  @override
+  String careInvitationExpiresIn(int hours, int minutes) {
+    return 'Expires in $hours h $minutes min';
+  }
+
+  @override
+  String get careInvitationExpired => 'This invitation has expired.';
+
+  @override
+  String get careInvitationSafetyNote =>
+      'Only share this code with someone you trust. The code itself never grants access to your location.';
+
+  @override
+  String get careInvitationCodeHint => 'Enter the code you received';
+
+  @override
+  String get careInvitationCodeEmpty => 'Please enter an invitation code.';
+
+  @override
+  String get careInvitationNotFound => 'No invitation found for that code.';
+
+  @override
+  String get careInvitationCopied => 'Invitation code copied.';
+
+  @override
+  String get careInvitationShared => 'Invitation shared.';
+
+  @override
+  String get careConnectionRequestTitle => 'Connection Request';
+
+  @override
+  String get careRequestedBy => 'Requested by';
+
+  @override
+  String get careIntendedConnection => 'Intended connection';
+
+  @override
+  String get careRequestedCapabilities => 'Requested access';
+
+  @override
+  String get carePrivacyDisclosure => 'Privacy disclosure';
+
+  @override
+  String get carePrivacyDisclosureBody =>
+      'Approving this request lets the person view your shared device location, battery level and last update time. You can revoke this access at any time from Sharing & Privacy.';
+
+  @override
+  String get careApprove => 'Approve';
+
+  @override
+  String get careReject => 'Reject';
+
+  @override
+  String get careRequestApproved => 'Request approved.';
+
+  @override
+  String get careRequestRejected => 'Request rejected.';
+
+  @override
+  String get careJoinFamilyTitle => 'Join Family Safety';
+
+  @override
+  String get careJoinFamilySubtitle =>
+      'You have been invited to connect on AmarGuard.';
+
+  @override
+  String get careAcceptInvitation => 'Accept Invitation';
+
+  @override
+  String get careDeclineInvitation => 'Decline';
+
+  @override
+  String get careInvitationAccepted =>
+      'Request sent to the device owner. Location access stays blocked until they approve it.';
+
+  @override
+  String get careJoinPrivacyDisclosureBody =>
+      'Sending this request does not give you location access. The device owner must review and approve it first. You can cancel later from Family Safety.';
+
+  @override
+  String get careSelfInvitation =>
+      'You cannot join using your own invitation. Sign in with a different AmarGuard account.';
+
+  @override
+  String get careInvitationClosed => 'This invitation is no longer open.';
+
+  @override
+  String get careInvitationInvalid =>
+      'This invitation is missing required device information.';
+
+  @override
+  String get careRequestAlreadyPending =>
+      'A request is already waiting for the device owner\'s approval.';
+
+  @override
+  String get careRequestAlreadyProcessed =>
+      'This invitation request was already processed.';
+
+  @override
+  String get careInvitationPermissionDenied =>
+      'You do not have permission to send this request.';
+
+  @override
+  String get careWhatYouCanSee => 'What you can see';
+
+  @override
+  String get careCapabilityLocation => 'Live location with permission';
+
+  @override
+  String get careCapabilityBattery => 'Battery status';
+
+  @override
+  String get careCapabilityLastSeen => 'Last seen time';
+
+  @override
+  String get careCapabilityDevice => 'Device name';
+
+  @override
+  String get carePermissionTitle => 'Enable Location Sharing';
+
+  @override
+  String get carePermissionSubtitle =>
+      'Review what AmarGuard needs before it can share your location.';
+
+  @override
+  String get carePermissionServiceOn => 'Location service is on';
+
+  @override
+  String get carePermissionServiceOff => 'Location service is off';
+
+  @override
+  String get carePermissionForeground => 'Allow while using the app';
+
+  @override
+  String get carePermissionBackground => 'Background access';
+
+  @override
+  String get carePermissionBackgroundBody =>
+      'Android requires you to allow \"Allow all the time\" in system settings so the app can keep sharing while closed.';
+
+  @override
+  String get carePermissionBackgroundGranted => 'Background access granted';
+
+  @override
+  String get carePermissionBackgroundDenied => 'Background access not granted';
+
+  @override
+  String get carePermissionPrecision => 'Location precision';
+
+  @override
+  String get carePermissionPrecisionPrecise => 'Precise';
+
+  @override
+  String get carePermissionPrecisionApproximate => 'Approximate';
+
+  @override
+  String get carePermissionNotification => 'Foreground notification';
+
+  @override
+  String get carePermissionNotificationBody =>
+      'A persistent notification is shown while sharing is active. It cannot be hidden.';
+
+  @override
+  String get carePermissionOpenSettings => 'Open system settings';
+
+  @override
+  String get carePermissionGrant => 'Grant permission';
+
+  @override
+  String get carePermissionCancel => 'Cancel';
+
+  @override
+  String get carePermissionContinue => 'Continue';
+
+  @override
+  String get carePermissionGranted => 'Location permission granted.';
+
+  @override
+  String get carePermissionDenied => 'Location permission was denied.';
+
+  @override
+  String get careMapTitle => 'Family Map';
+
+  @override
+  String get careMapRecenter => 'Recenter';
+
+  @override
+  String get careMapZoomIn => 'Zoom in';
+
+  @override
+  String get careMapZoomOut => 'Zoom out';
+
+  @override
+  String get careMapNoMembers => 'No approved family locations yet';
+
+  @override
+  String get careMapNoMembersBody =>
+      'Once a family member approves a connection and enables sharing, their location appears here.';
+
+  @override
+  String get careMapTilesUnavailable =>
+      'Map tiles are unavailable. Coordinates are still shown below.';
+
+  @override
+  String get careMapAttribution => '© OpenStreetMap contributors';
+
+  @override
+  String get careMapOpenInMaps => 'Open in Maps';
+
+  @override
+  String get careMapCoordinates => 'Coordinates';
+
+  @override
+  String get careMapAccuracy => 'Accuracy';
+
+  @override
+  String get careMapLastUpdate => 'Last update';
+
+  @override
+  String get careMemberDetailsTitle => 'Family Member Details';
+
+  @override
+  String get careDeviceNickname => 'Device name';
+
+  @override
+  String get careCoordinates => 'Coordinates';
+
+  @override
+  String get careCaptureTime => 'Location captured';
+
+  @override
+  String get careSyncTime => 'Last synchronized';
+
+  @override
+  String get careLiveStatus => 'Location status';
+
+  @override
+  String get careOpenInMaps => 'Open location in a map app';
+
+  @override
+  String get careNoLocationYet => 'No location received yet';
+
+  @override
+  String get careNoLocationYetBody =>
+      'This member has not shared a location yet. Their last known location will appear here once they enable sharing.';
+
+  @override
+  String get carePrivacyTitle => 'Sharing & Privacy';
+
+  @override
+  String get carePrivacyWhoCanView => 'Who can view my location';
+
+  @override
+  String get carePrivacyWhoCanViewBody =>
+      'Only the family members you explicitly approve can read your shared location.';
+
+  @override
+  String get carePrivacyActiveSessions => 'Active sharing sessions';
+
+  @override
+  String get carePrivacyDeviceControls => 'Device sharing controls';
+
+  @override
+  String get carePrivacyPermissionSettings => 'Permission settings';
+
+  @override
+  String get carePrivacyInformation => 'Privacy information';
+
+  @override
+  String get carePrivacyInformationBody =>
+      'AmarGuard Care never collects location without your consent. Sharing is visible through a persistent Android notification, and you can pause, stop or revoke access at any time.';
+
+  @override
+  String get careRevokeAccess => 'Revoke Access';
+
+  @override
+  String get careRevokeConfirmTitle => 'Revoke access?';
+
+  @override
+  String get careRevokeConfirmBody =>
+      'This family member will no longer be able to read your location. You can approve a new request later.';
+
+  @override
+  String get careRevokeDone => 'Access revoked.';
+
+  @override
+  String get careStopConfirmTitle => 'Stop sharing?';
+
+  @override
+  String get careStopConfirmBody =>
+      'Your location will no longer be collected or sent. Approved members will keep the last location they already received.';
+
+  @override
+  String get careRemoveInvitation => 'Remove invitation';
+
+  @override
+  String get careRemoveInvitationConfirm => 'Remove this invitation?';
+
+  @override
+  String get careRemoveInvitationBody =>
+      'Nobody with this code will be able to request a new connection.';
+
+  @override
+  String get careCancel => 'Cancel';
+
+  @override
+  String get careConfirm => 'Confirm';
+
+  @override
+  String get careGuestBlockedTitle => 'Sign in to use Family Safety';
+
+  @override
+  String get careGuestBlockedBody =>
+      'Guest mode cannot create or approve family connections. Sign in with your AmarGuard account to share your location with trusted family members.';
+
+  @override
+  String get careSharingStarted => 'Location sharing started.';
+
+  @override
+  String get careSharingPausedMessage => 'Location sharing paused.';
+
+  @override
+  String get careSharingStoppedMessage => 'Location sharing stopped.';
+
+  @override
+  String get careSharingStartFailed =>
+      'Could not start sharing. Check location permission and GPS.';
+
+  @override
+  String careLowBatteryAlert(String name, int percent) {
+    return '$name has low battery ($percent%)';
+  }
+
+  @override
+  String careCriticalBatteryAlert(String name, int percent) {
+    return '$name battery is critically low ($percent%)';
+  }
+
+  @override
+  String get careGpsOff => 'GPS is turned off on this device.';
+
+  @override
+  String get careRenameDevice => 'Rename device';
+
+  @override
+  String get careRenameDeviceHint => 'Device name';
+
+  @override
+  String get careSave => 'Save';
+
+  @override
+  String get careRelationshipParent => 'Parent';
+
+  @override
+  String get careRelationshipChild => 'Child';
+
+  @override
+  String get careRelationshipSpouse => 'Spouse';
+
+  @override
+  String get careRelationshipSibling => 'Sibling';
+
+  @override
+  String get careRelationshipGuardian => 'Guardian';
+
+  @override
+  String get careRelationshipCaregiver => 'Caregiver';
+
+  @override
+  String get careRelationshipFriend => 'Friend';
+
+  @override
+  String get careRelationshipOther => 'Other';
+
+  @override
+  String careInvitationOwner(String name) {
+    return 'Invited by $name';
+  }
+
+  @override
+  String get careRequestStatusPending => 'Pending';
+
+  @override
+  String get careRequestStatusApproved => 'Approved';
+
+  @override
+  String get careRequestStatusRejected => 'Rejected';
+
+  @override
+  String careWatchedBy(int count) {
+    return 'You can view $count family member';
+  }
+
+  @override
+  String careWatchedByPlural(int count) {
+    return 'You can view $count family members';
+  }
+
+  @override
+  String careSharingTo(int count) {
+    return 'Sharing with $count approved member';
+  }
+
+  @override
+  String careSharingToPlural(int count) {
+    return 'Sharing with $count approved members';
+  }
+
+  @override
+  String get careLocationSharing => 'Location sharing';
+
+  @override
+  String get careLoading => 'Loading...';
+
+  @override
+  String get careRetry => 'Retry';
+
+  @override
+  String get careOpenSettings => 'Open settings';
+
+  @override
+  String careMemberSince(String date) {
+    return 'Connected since $date';
+  }
 }

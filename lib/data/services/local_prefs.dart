@@ -9,6 +9,8 @@ class LocalPrefs {
 
   final SharedPreferences _prefs;
 
+  SharedPreferences get preferences => _prefs;
+
   static Future<LocalPrefs> create() async {
     final prefs = await SharedPreferences.getInstance();
     return LocalPrefs._(prefs);

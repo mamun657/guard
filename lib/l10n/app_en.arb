@@ -194,5 +194,279 @@
   "snackNotificationsBody": "You have no new safety alerts right now.",
 
   "firebaseUnavailableTitle": "Firebase unavailable",
-  "firebaseUnavailableFallback": "AmarGuard could not start. Please try again."
+  "firebaseUnavailableFallback": "AmarGuard could not start. Please try again.",
+
+  "careTitle": "Family Safety",
+  "careTagline": "Stay connected with the people you trust. You stay in control at all times.",
+  "careBack": "Back",
+  "careSharingActive": "Sharing active",
+  "careSharingPaused": "Sharing paused",
+  "careSharingStopped": "Sharing stopped",
+  "careSharingNotConfigured": "Not configured yet",
+  "carePermissionDisabled": "Location permission disabled",
+  "careMyDevice": "My Device",
+  "careDeviceIdentifier": "Device ID",
+  "careCurrentLocationPermission": "Location permission",
+  "careLastSync": "Last successful sync",
+  "careBattery": "Battery",
+  "careStartSharing": "Start Sharing",
+  "carePauseSharing": "Pause Sharing",
+  "careResumeSharing": "Resume Sharing",
+  "careStopSharing": "Stop Sharing",
+  "careConnectedMembers": "Connected Family Members",
+  "careAddMember": "Add Family Member",
+  "careViewMap": "View Family Map",
+  "carePrivacySettings": "Sharing & Privacy",
+  "careNoMembers": "No family members connected yet",
+  "careNoMembersBody": "Create an invitation and ask a trusted family member to connect.",
+  "careMemberFreshness": "Last known location",
+  "careMemberFreshnessFresh": "Recently updated",
+  "careMemberFreshnessStale": "Last Known Location",
+  "careMemberFreshnessUnavailable": "Offline or unavailable",
+  "careMemberFreshnessPaused": "Sharing paused",
+  "careMemberFreshnessNotConnected": "Not connected",
+  "careMemberFreshnessNotConfigured": "Not yet configured",
+  "careMemberFreshnessPermissionDisabled": "Permission disabled",
+  "careLastSeen": "Last seen",
+  "careRelationship": "Relationship",
+  "careBatteryLow": "Battery Low",
+  "careBatteryCritical": "Battery critically low",
+  "careCharging": "Charging",
+  "careNotCharging": "Not charging",
+  "careNever": "Never",
+  "careJustNow": "Just now",
+  "careMinutesAgo": "{count} min ago",
+  "@careMinutesAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "careHoursAgo": "{count} h ago",
+  "@careHoursAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "careDaysAgo": "{count} d ago",
+  "@careDaysAgo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "careFamilyMembersTitle": "Family Members",
+  "careFamilyMembersSubtitle": "People you have approved to view your location",
+  "careAddFamilyMemberTitle": "Add Family Member",
+  "careAddFamilyMemberSubtitle": "Invite someone you trust to see your location",
+  "careGenerateInvitation": "Generate Invitation",
+  "careCopyInvitationLink": "Copy Invitation Link",
+  "careShareInvitation": "Share Invitation",
+  "careEnterInvitationCode": "Enter Invitation Code",
+  "carePendingRequests": "Pending Requests",
+  "careInvitationCodeLabel": "Your invitation code",
+  "careInvitationExpiresIn": "Expires in {hours} h {minutes} min",
+  "@careInvitationExpiresIn": {
+    "placeholders": {
+      "hours": {
+        "type": "int"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "careInvitationExpired": "This invitation has expired.",
+  "careInvitationSafetyNote": "Only share this code with someone you trust. The code itself never grants access to your location.",
+  "careInvitationCodeHint": "Enter the code you received",
+  "careInvitationCodeEmpty": "Please enter an invitation code.",
+  "careInvitationNotFound": "No invitation found for that code.",
+  "careInvitationCopied": "Invitation code copied.",
+  "careInvitationShared": "Invitation shared.",
+  "careConnectionRequestTitle": "Connection Request",
+  "careRequestedBy": "Requested by",
+  "careIntendedConnection": "Intended connection",
+  "careRequestedCapabilities": "Requested access",
+  "carePrivacyDisclosure": "Privacy disclosure",
+  "carePrivacyDisclosureBody": "Approving this request lets the person view your shared device location, battery level and last update time. You can revoke this access at any time from Sharing & Privacy.",
+  "careApprove": "Approve",
+  "careReject": "Reject",
+  "careRequestApproved": "Request approved.",
+  "careRequestRejected": "Request rejected.",
+  "careJoinFamilyTitle": "Join Family Safety",
+  "careJoinFamilySubtitle": "You have been invited to connect on AmarGuard.",
+  "careAcceptInvitation": "Accept Invitation",
+  "careDeclineInvitation": "Decline",
+  "careInvitationAccepted": "Request sent to the device owner. Location access stays blocked until they approve it.",
+  "careJoinPrivacyDisclosureBody": "Sending this request does not give you location access. The device owner must review and approve it first. You can cancel later from Family Safety.",
+  "careSelfInvitation": "You cannot join using your own invitation. Sign in with a different AmarGuard account.",
+  "careInvitationClosed": "This invitation is no longer open.",
+  "careInvitationInvalid": "This invitation is missing required device information.",
+  "careRequestAlreadyPending": "A request is already waiting for the device owner's approval.",
+  "careRequestAlreadyProcessed": "This invitation request was already processed.",
+  "careInvitationPermissionDenied": "You do not have permission to send this request.",
+  "careWhatYouCanSee": "What you can see",
+  "careCapabilityLocation": "Live location with permission",
+  "careCapabilityBattery": "Battery status",
+  "careCapabilityLastSeen": "Last seen time",
+  "careCapabilityDevice": "Device name",
+  "carePermissionTitle": "Enable Location Sharing",
+  "carePermissionSubtitle": "Review what AmarGuard needs before it can share your location.",
+  "carePermissionServiceOn": "Location service is on",
+  "carePermissionServiceOff": "Location service is off",
+  "carePermissionForeground": "Allow while using the app",
+  "carePermissionBackground": "Background access",
+  "carePermissionBackgroundBody": "Android requires you to allow \"Allow all the time\" in system settings so the app can keep sharing while closed.",
+  "carePermissionBackgroundGranted": "Background access granted",
+  "carePermissionBackgroundDenied": "Background access not granted",
+  "carePermissionPrecision": "Location precision",
+  "carePermissionPrecisionPrecise": "Precise",
+  "carePermissionPrecisionApproximate": "Approximate",
+  "carePermissionNotification": "Foreground notification",
+  "carePermissionNotificationBody": "A persistent notification is shown while sharing is active. It cannot be hidden.",
+  "carePermissionOpenSettings": "Open system settings",
+  "carePermissionGrant": "Grant permission",
+  "carePermissionCancel": "Cancel",
+  "carePermissionContinue": "Continue",
+  "carePermissionGranted": "Location permission granted.",
+  "carePermissionDenied": "Location permission was denied.",
+  "careMapTitle": "Family Map",
+  "careMapRecenter": "Recenter",
+  "careMapZoomIn": "Zoom in",
+  "careMapZoomOut": "Zoom out",
+  "careMapNoMembers": "No approved family locations yet",
+  "careMapNoMembersBody": "Once a family member approves a connection and enables sharing, their location appears here.",
+  "careMapTilesUnavailable": "Map tiles are unavailable. Coordinates are still shown below.",
+  "careMapAttribution": "© OpenStreetMap contributors",
+  "careMapOpenInMaps": "Open in Maps",
+  "careMapCoordinates": "Coordinates",
+  "careMapAccuracy": "Accuracy",
+  "careMapLastUpdate": "Last update",
+  "careMemberDetailsTitle": "Family Member Details",
+  "careDeviceNickname": "Device name",
+  "careCoordinates": "Coordinates",
+  "careCaptureTime": "Location captured",
+  "careSyncTime": "Last synchronized",
+  "careLiveStatus": "Location status",
+  "careOpenInMaps": "Open location in a map app",
+  "careNoLocationYet": "No location received yet",
+  "careNoLocationYetBody": "This member has not shared a location yet. Their last known location will appear here once they enable sharing.",
+  "carePrivacyTitle": "Sharing & Privacy",
+  "carePrivacyWhoCanView": "Who can view my location",
+  "carePrivacyWhoCanViewBody": "Only the family members you explicitly approve can read your shared location.",
+  "carePrivacyActiveSessions": "Active sharing sessions",
+  "carePrivacyDeviceControls": "Device sharing controls",
+  "carePrivacyPermissionSettings": "Permission settings",
+  "carePrivacyInformation": "Privacy information",
+  "carePrivacyInformationBody": "AmarGuard Care never collects location without your consent. Sharing is visible through a persistent Android notification, and you can pause, stop or revoke access at any time.",
+  "careRevokeAccess": "Revoke Access",
+  "careRevokeConfirmTitle": "Revoke access?",
+  "careRevokeConfirmBody": "This family member will no longer be able to read your location. You can approve a new request later.",
+  "careRevokeDone": "Access revoked.",
+  "careStopConfirmTitle": "Stop sharing?",
+  "careStopConfirmBody": "Your location will no longer be collected or sent. Approved members will keep the last location they already received.",
+  "careRemoveInvitation": "Remove invitation",
+  "careRemoveInvitationConfirm": "Remove this invitation?",
+  "careRemoveInvitationBody": "Nobody with this code will be able to request a new connection.",
+  "careCancel": "Cancel",
+  "careConfirm": "Confirm",
+  "careGuestBlockedTitle": "Sign in to use Family Safety",
+  "careGuestBlockedBody": "Guest mode cannot create or approve family connections. Sign in with your AmarGuard account to share your location with trusted family members.",
+  "careSharingStarted": "Location sharing started.",
+  "careSharingPausedMessage": "Location sharing paused.",
+  "careSharingStoppedMessage": "Location sharing stopped.",
+  "careSharingStartFailed": "Could not start sharing. Check location permission and GPS.",
+  "careLowBatteryAlert": "{name} has low battery ({percent}%)",
+  "@careLowBatteryAlert": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "careCriticalBatteryAlert": "{name} battery is critically low ({percent}%)",
+  "@careCriticalBatteryAlert": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      },
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "careGpsOff": "GPS is turned off on this device.",
+  "careRenameDevice": "Rename device",
+  "careRenameDeviceHint": "Device name",
+  "careSave": "Save",
+  "careRelationshipParent": "Parent",
+  "careRelationshipChild": "Child",
+  "careRelationshipSpouse": "Spouse",
+  "careRelationshipSibling": "Sibling",
+  "careRelationshipGuardian": "Guardian",
+  "careRelationshipCaregiver": "Caregiver",
+  "careRelationshipFriend": "Friend",
+  "careRelationshipOther": "Other",
+  "careInvitationOwner": "Invited by {name}",
+  "@careInvitationOwner": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "careRequestStatusPending": "Pending",
+  "careRequestStatusApproved": "Approved",
+  "careRequestStatusRejected": "Rejected",
+  "careWatchedBy": "You can view {count} family member",
+  "@careWatchedBy": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "careWatchedByPlural": "You can view {count} family members",
+  "@careWatchedByPlural": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "careSharingTo": "Sharing with {count} approved member",
+  "@careSharingTo": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "careSharingToPlural": "Sharing with {count} approved members",
+  "@careSharingToPlural": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "careLocationSharing": "Location sharing",
+  "careLoading": "Loading...",
+  "careRetry": "Retry",
+  "careOpenSettings": "Open settings",
+  "careMemberSince": "Connected since {date}",
+  "@careMemberSince": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  }
 }
