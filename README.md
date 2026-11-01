@@ -35,11 +35,13 @@
 
 # 📌 Project Overview
 
-**AmarGuard** is a Bangla-first digital safety companion designed to help users understand potentially risky digital interactions before they respond.
+**AmarGuard** is a Bangla-first, AI-assisted digital safety and family protection platform designed to help users recognize potential digital threats and stay connected with their trusted family members.
 
-Instead of focusing only on suspicious links or phone numbers, AmarGuard analyzes the **context of an interaction** and identifies signals that may indicate manipulation, fraud, impersonation, or social engineering.
+Its core digital safety feature, **ScamShield**, analyzes suspicious messages to identify potential scam indicators and provide understandable risk insights. Alongside this, **Family Safety** enables consent-based family connections, location sharing, and access to available device-status information.
 
-The platform is designed around:
+AmarGuard also incorporates **CareSignal AI**, a voice-assisted help-request workflow designed to support communication with approved family contacts.
+
+The platform follows a user-centered safety approach:
 
 ```text
 Detect
@@ -51,15 +53,7 @@ Explain
 Protect
 ```
 
-AmarGuard helps users analyze potentially risky:
-
-* Calls
-* Messages
-* Links
-* Screenshots
-* Audio interactions
-
-The goal is to transform confusing digital interactions into understandable safety decisions.
+AmarGuard aims to make digital interactions safer and family support more accessible through AI-assisted analysis and consent-based safety features.
 
 ---
 
@@ -177,108 +171,117 @@ AmarGuard provides a multimodal digital safety experience where users can bring 
 
 ## 🔐 Authentication
 
-AmarGuard provides account-based access for users who want a persistent safety experience.
+AmarGuard uses Firebase Authentication to provide account-based access.
 
 ### Includes
-
-* User registration
-* Email/password authentication
-* Protected user experience
-* User profile
-* Persistent preferences
-* Firebase authentication
+- User registration and login
+- Email/password authentication
+- Firebase-backed authentication
+- Account-based access to application features
 
 ---
 
 ## 👤 Guest Mode
 
-Users can access selected safety-analysis workflows without creating an account.
-
-Guest mode is designed for quick situations where a user wants to check suspicious content without maintaining an account history.
+AmarGuard provides guest access to selected safety-analysis workflows, allowing users to check suspicious content without creating an account.
 
 ---
 
-## 📞 Analyze Call
+## 📞 Call-Related Analysis
 
-AmarGuard provides a dedicated workflow for suspicious call-related interactions.
+AmarGuard supports analysis workflows for suspicious call-related interactions using supported, user-provided or consent-based audio.
 
-The product architecture focuses on user-provided or consented audio rather than silently recording ordinary cellular calls.
+The application does not silently record ordinary cellular calls. Audio availability and analysis depend on device support and the configured backend.
 
 ---
 
-## 💬 Check Message
+## 💬 Check Message - ScamShield
 
-Users can analyze suspicious messages and conversations.
+ScamShield helps users analyze suspicious messages and identify potential scam indicators.
 
-The system can identify contextual signals such as:
+### Signals include
+- Urgency and secrecy
+- Payment requests
+- OTP/PIN or password requests
+- Account threats
+- Impersonation and authority claims
+- Prize and reward claims
+- Job and delivery-related claims
+- Investment requests
 
-* Urgency
-* Secrecy
-* Payment requests
-* OTP/PIN requests
-* Account threats
-* Impersonation
-* Authority claims
-* Prize/reward claims
-* Job offers
-* Delivery claims
-* Investment requests
+The analysis provides risk indicators and safety guidance, not a guarantee that a message is fraudulent.
 
 ---
 
 ## 🔗 Check Link
 
-Users can submit potentially suspicious URLs for safety-oriented analysis.
+Users can submit suspicious URLs for safety-oriented analysis.
 
-The goal is to help users understand both the link and the surrounding interaction context.
+The workflow aims to help users recognize potentially risky links and understand why they should be cautious before opening them.
 
 ---
 
 ## 📸 Scan Screenshot
 
-Users can provide screenshots of:
+Users can submit screenshots containing suspicious digital interactions, such as:
 
-* Suspicious conversations
-* Payment requests
-* Account warnings
-* Prize offers
-* Job offers
-* Delivery messages
-* Social-media interactions
+- Suspicious conversations
+- Payment requests
+- Account warnings
+- Prize or job offers
+- Delivery-related messages
+- Social-media interactions
 
-The system can extract useful contextual information from the visual content.
+The feature is intended to help assess warning signs from visual context. Its accuracy depends on the supported image-analysis workflow.
 
 ---
 
 ## 🎙️ Analyze Audio
 
-Users can provide audio for analysis.
+AmarGuard supports user-provided audio analysis through speech-transcription and AI-assisted workflows.
 
-The intended workflow is:
+The intended processing approach is:
 
 ```text
-Audio
-  ↓
-Speech-to-Text
-  ↓
-Bangla / Banglish Normalization
-  ↓
-Context Extraction
-  ↓
-Risk Signal Detection
-  ↓
-Risk Explanation
+Audio Input
+    ↓
+Speech Transcription
+    ↓
+Context Analysis
+    ↓
+Risk Signal Identification
+    ↓
+Safety Explanation
 ```
+
+Supported languages and analysis quality depend on the configured transcription and AI services.
 
 ---
 
 ## 👨‍👩‍👧 Family Safety
 
-AmarGuard includes a family-safety concept for trusted contacts and family-oriented digital safety support.
+AmarGuard includes consent-based family connection and safety-sharing features.
 
-The goal is to help users extend digital safety awareness to people they care about.
+### Includes
+- Family invitations and approval
+- Authorized family connections
+- Shared location visibility
+- Available device-status information
+- Battery information where supported
+
+Location and device information are available according to sharing authorization, permissions, and device connectivity.
 
 ---
+
+## 🆘 CareSignal AI
+
+CareSignal AI provides a voice-assisted help-request workflow.
+
+- Supports voice-based help requests.
+- Uses speech transcription and AI-assisted intent understanding.
+- Prepares assistance requests for approved family contacts.
+
+Real-time push-notification delivery is still subject to backend and FCM integration verification.
 
 ## 🌐 English + বাংলা
 
@@ -581,6 +584,24 @@ A Neo4j-based knowledge graph can be used to represent relationships between thr
 <p align="center">
   <img width="300" height="650" alt="AmarGuard Profile" src="https://github.com/user-attachments/assets/030de9c2-d955-4183-96dc-6c28130d5cd8" />
   <img width="300" height="650" alt="AmarGuard Language" src="https://github.com/user-attachments/assets/2e4cd5ab-e7cf-4cd7-ad62-aca86904e793" />
+</p>
+
+
+---
+## Family Invitation & Connection
+
+<p align="center">
+  <img width="300" height="650" alt="AmarGuard Family Invitation" src="https://github.com/user-attachments/assets/4e1abd0c-8f29-4b2c-a865-7e49991b6ad5" />
+  <img width="300" height="650" alt="AmarGuard Enter Invitation Code" src="https://github.com/user-attachments/assets/2f7da178-a1ba-42c5-ac50-006d503857bd" />
+</p>
+
+---
+
+## CareSignal AI
+
+<p align="center">
+  <img width="300" height="650" alt="AmarGuard CareSignal AI Help Request" src="https://github.com/user-attachments/assets/53ed1771-3112-41e5-aafd-669479789a01" />
+  <img width="300" height="650" alt="AmarGuard CareSignal AI Help Request Details" src="https://github.com/user-attachments/assets/86af5040-f7f7-426e-b5ec-a9a81c368050" />
 </p>
 
 ---
