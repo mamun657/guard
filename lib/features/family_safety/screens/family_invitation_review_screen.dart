@@ -6,7 +6,6 @@ import '../models/family_models.dart';
 import '../services/family_error_messages.dart';
 import '../theme/care_colors.dart';
 import '../theme/care_theme.dart';
-import '../widgets/care_components.dart';
 import '../widgets/care_formatters.dart';
 import '../widgets/care_widgets.dart';
 
@@ -273,7 +272,7 @@ class _FamilyInvitationReviewScreenState
     final l10n = AppLocalizations.of(context)!;
     setState(() => _isSubmitting = true);
     try {
-      await widget.controller.submitRequest(
+      final alreadyPending = await widget.controller.submitRequest(
         invitation: widget.invitation,
         relationship: _relationship,
       );
@@ -281,7 +280,11 @@ class _FamilyInvitationReviewScreenState
         SnackBar(
           behavior: SnackBarBehavior.floating,
           backgroundColor: CareColors.teal,
-          content: Text(l10n.careInvitationAccepted),
+          content: Text(
+            alreadyPending
+                ? l10n.careRequestAlreadyPending
+                : l10n.careInvitationAccepted,
+          ),
         ),
       );
       if (navigator.canPop()) navigator.pop();

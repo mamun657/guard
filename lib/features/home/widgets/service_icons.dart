@@ -96,7 +96,35 @@ class FamilySafetyIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return _ServiceIcon(
-      asset: 'assets/icons/family_safety.png',
+      asset: 'assets/icons/family_safety_action.png',
+      size: size,
+    );
+  }
+}
+
+class CareSignalIcon extends StatelessWidget {
+  const CareSignalIcon({super.key, this.size = 56, this.color});
+  final double size;
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) {
+    return _ServiceIcon(
+      asset: 'assets/icons/care_signal_action.png',
+      size: size,
+    );
+  }
+}
+
+class SilentSpeakIcon extends StatelessWidget {
+  const SilentSpeakIcon({super.key, this.size = 56, this.color});
+  final double size;
+  final Color? color;
+
+  @override
+  Widget build(BuildContext context) {
+    return _ServiceIcon(
+      asset: 'assets/icons/silent_speak_action.png',
       size: size,
     );
   }

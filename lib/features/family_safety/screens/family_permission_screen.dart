@@ -3,11 +3,8 @@ import 'package:geolocator/geolocator.dart';
 
 import '../../../l10n/generated/app_localizations.dart';
 import '../controllers/family_safety_controller.dart';
-import '../services/location_provider.dart';
 import '../theme/care_colors.dart';
 import '../theme/care_theme.dart';
-import '../widgets/care_components.dart';
-import '../widgets/care_widgets.dart';
 
 class FamilyPermissionScreen extends StatefulWidget {
   const FamilyPermissionScreen({
@@ -253,7 +250,6 @@ class _PermissionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;
     final accent = isInformational
         ? CareColors.navy
         : granted

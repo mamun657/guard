@@ -26,6 +26,12 @@ dependencies:
   battery_plus: ^7.1.2
   share_plus: ^13.3.1
   app_links: ^7.2.2
+  record: ^7.1.2
+  http: ^1.6.0
+  url_launcher: ^6.3.3
+  firebase_messaging: ^16.7.1
+  flutter_local_notifications: ^22.3.3
+  lottie: ^3.3.1
 
 dev_dependencies:
   flutter_test:
@@ -47,10 +53,15 @@ flutter:
     - assets/icons/scan_screenshot.png
     - assets/icons/analyze_audio.png
     - assets/icons/family_safety.png
+    - assets/icons/family_safety_action.png
+    - assets/icons/care_signal_action.png
+    - assets/icons/silent_speak_action.png
     - assets/images/img1.png
     - assets/images/img2.png
     - assets/images/onb1.png
     - assets/images/onb3.png
+    - assets/images/loading.json
+    - assets/images/Chatbot animation.json
 
   fonts:
     - family: NotoSansBengali

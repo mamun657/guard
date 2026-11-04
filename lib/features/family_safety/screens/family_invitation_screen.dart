@@ -9,7 +9,6 @@ import '../services/family_error_messages.dart';
 import '../services/secure_token.dart';
 import '../theme/care_colors.dart';
 import '../theme/care_theme.dart';
-import '../widgets/care_components.dart';
 import '../widgets/care_formatters.dart';
 import '../widgets/care_widgets.dart';
 import 'family_invitation_review_screen.dart';
@@ -131,11 +130,14 @@ class _FamilyInvitationScreenState extends State<FamilyInvitationScreen> {
     try {
       await widget.controller.createInvitation();
     } catch (_) {
+      if (!messenger.mounted) return;
       messenger.showSnackBar(
         SnackBar(
           behavior: SnackBarBehavior.floating,
           backgroundColor: CareColors.coral,
-          content: Text(AppLocalizations.of(context)!.careInvitationNotFound),
+          content: Text(
+            AppLocalizations.of(messenger.context)!.careInvitationNotFound,
+          ),
         ),
       );
     } finally {
@@ -244,19 +246,9 @@ class _FamilyInvitationScreenState extends State<FamilyInvitationScreen> {
     try {
       final invitation = await widget.controller.lookupInvitation(code);
       if (!mounted) return;
-      setState(() {
-        _isLookingUp = false;
-        if (invitation == null) {
-          _lookupError = l10n.careInvitationNotFound;
-        }
-      });
-      if (invitation == null) return;
+      setState(() => _isLookingUp = false);
       if (widget.controller.isOwnInvitation(invitation)) {
         setState(() => _lookupError = l10n.careSelfInvitation);
-        return;
-      }
-      if (!invitation.isOpen) {
-        setState(() => _lookupError = l10n.careInvitationExpired);
         return;
       }
       await Navigator.of(context).push(
@@ -280,27 +272,51 @@ class _FamilyInvitationScreenState extends State<FamilyInvitationScreen> {
   Future<void> _approveRequest(ConnectionRequest request) async {
     final messenger = ScaffoldMessenger.of(context);
     final l10n = AppLocalizations.of(context)!;
-    await widget.controller.approveRequest(request);
-    messenger.showSnackBar(
-      SnackBar(
-        behavior: SnackBarBehavior.floating,
-        backgroundColor: CareColors.teal,
-        content: Text(l10n.careRequestApproved),
-      ),
-    );
+    try {
+      await widget.controller.approveRequest(request);
+      if (!messenger.mounted) return;
+      messenger.showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: CareColors.teal,
+          content: Text(l10n.careRequestApproved),
+        ),
+      );
+    } catch (error) {
+      if (!messenger.mounted) return;
+      messenger.showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: CareColors.coral,
+          content: Text(familySafetyErrorMessage(l10n, error)),
+        ),
+      );
+    }
   }
 
   Future<void> _rejectRequest(ConnectionRequest request) async {
     final messenger = ScaffoldMessenger.of(context);
     final l10n = AppLocalizations.of(context)!;
-    await widget.controller.rejectRequest(request);
-    messenger.showSnackBar(
-      SnackBar(
-        behavior: SnackBarBehavior.floating,
-        backgroundColor: CareColors.navy,
-        content: Text(l10n.careRequestRejected),
-      ),
-    );
+    try {
+      await widget.controller.rejectRequest(request);
+      if (!messenger.mounted) return;
+      messenger.showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: CareColors.navy,
+          content: Text(l10n.careRequestRejected),
+        ),
+      );
+    } catch (error) {
+      if (!messenger.mounted) return;
+      messenger.showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          backgroundColor: CareColors.coral,
+          content: Text(familySafetyErrorMessage(l10n, error)),
+        ),
+      );
+    }
   }
 }
 
@@ -653,9 +669,10 @@ class _PendingRequestCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final name = request.viewerDisplayName.trim().isNotEmpty
-        ? request.viewerDisplayName.trim()
-        : 'Family member';
+    final name = familyPersonLabel(
+      displayName: request.viewerDisplayName,
+      email: request.viewerEmail,
+    );
     return Container(
       padding: const EdgeInsets.fromLTRB(14, 14, 14, 12),
       decoration: CareTheme.cardDecoration(),

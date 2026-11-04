@@ -33,7 +33,9 @@ class FamilyMemberDetailsScreen extends StatelessWidget {
     final freshness = connection?.freshness ?? _freshness(presence, location);
     final accent = freshnessColor(freshness);
     final name = connection?.viewerDisplayName ?? _displayName();
-    final lastUpload = location?.capturedAt ?? presence.lastSuccessfulUpload;
+    final lastUpload = presence.lastSuccessfulUpload ??
+        location?.syncedAt ??
+        location?.capturedAt;
 
     return Scaffold(
       backgroundColor: CareColors.ivory,

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../../l10n/generated/app_localizations.dart';
@@ -8,10 +10,10 @@ import '../theme/care_theme.dart';
 import '../widgets/care_components.dart';
 import '../widgets/care_formatters.dart';
 import '../widgets/care_widgets.dart';
+import '../../../shared/widgets/amarguard_loading.dart';
 import 'family_invitation_screen.dart';
 import 'family_map_screen.dart';
 import 'family_members_screen.dart';
-import 'family_permission_screen.dart';
 import 'family_privacy_screen.dart';
 
 class FamilySafetyScreen extends StatefulWidget {
@@ -29,10 +31,15 @@ class FamilySafetyScreen extends StatefulWidget {
 }
 
 class _FamilySafetyScreenState extends State<FamilySafetyScreen> {
+  Timer? _refreshTimer;
+
   @override
   void initState() {
     super.initState();
     widget.controller.addListener(_onControllerChanged);
+    _refreshTimer = Timer.periodic(const Duration(seconds: 30), (_) {
+      if (mounted) setState(() {});
+    });
     WidgetsBinding.instance.addPostFrameCallback((_) {
       widget.controller.initialize(isGuest: widget.isGuest);
     });
@@ -40,6 +47,8 @@ class _FamilySafetyScreenState extends State<FamilySafetyScreen> {
 
   @override
   void dispose() {
+    _refreshTimer?.cancel();
+    _refreshTimer = null;
     widget.controller.removeListener(_onControllerChanged);
     super.dispose();
   }
@@ -62,8 +71,14 @@ class _FamilySafetyScreenState extends State<FamilySafetyScreen> {
       body: SafeArea(
         bottom: false,
         child: controller.loadState == CareLoadState.loading
-            ? const Center(
-                child: CircularProgressIndicator(color: CareColors.teal),
+            ? Center(
+                child: AmarGuardLoading(
+                  variant: AmarGuardLoadingVariant.fullScreen,
+                  width: 160,
+                  height: 160,
+                  title: '',
+                  message: l10n.careLoading,
+                ),
               )
             : RefreshIndicator(
                 color: CareColors.teal,
@@ -78,11 +93,50 @@ class _FamilySafetyScreenState extends State<FamilySafetyScreen> {
                       title: l10n.careTitle,
                       subtitle: l10n.careTagline,
                       onBack: () => Navigator.of(context).pop(),
-                      statusLabel: _sharingLabel(l10n, controller.sharingState),
+                      statusLabel: _sharingLabel(
+                        l10n,
+                        controller.sharingState,
+                        controller.isSyncStale,
+                      ),
                       statusColor: _sharingColor(controller.sharingState),
                     ),
                     const SizedBox(height: 20),
                     _MyDeviceCard(controller: controller),
+                    if (controller.errorMessage != null) ...[
+                      const SizedBox(height: 12),
+                      Container(
+                        padding: const EdgeInsets.all(14),
+                        decoration: BoxDecoration(
+                          color: CareColors.coral.withValues(alpha: 0.12),
+                          borderRadius: BorderRadius.circular(16),
+                          border: Border.all(
+                            color: CareColors.coral.withValues(alpha: 0.35),
+                          ),
+                        ),
+                        child: Row(
+                          children: [
+                            const Icon(
+                              Icons.error_outline_rounded,
+                              color: CareColors.coral,
+                            ),
+                            const SizedBox(width: 10),
+                            Expanded(
+                              child: Text(
+                                controller.errorMessage!,
+                                style: const TextStyle(
+                                  color: CareColors.navy,
+                                  fontSize: 12,
+                                ),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: controller.refresh,
+                              child: Text(l10n.careRetry),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                     const SizedBox(height: 22),
                     CareSectionHeader(
                       title: l10n.careConnectedMembers,
@@ -150,10 +204,14 @@ class _FamilySafetyScreenState extends State<FamilySafetyScreen> {
     );
   }
 
-  String _sharingLabel(AppLocalizations l10n, SharingState state) {
+  String _sharingLabel(
+    AppLocalizations l10n,
+    SharingState state,
+    bool isSyncStale,
+  ) {
     switch (state) {
       case SharingState.active:
-        return l10n.careSharingActive;
+        return isSyncStale ? l10n.careSharingStale : l10n.careSharingActive;
       case SharingState.paused:
         return l10n.careSharingPaused;
       case SharingState.stopped:
@@ -316,9 +374,16 @@ class _MyDeviceCard extends StatelessWidget {
                 ),
                 CareInfoTile(
                   icon: Icons.battery_charging_full_rounded,
-                  label: l10n.careBattery,
+                  label: l10n.careLiveBattery,
                   value: controller.battery.hasKnownLevel
                       ? '${controller.battery.level}%'
+                      : '--',
+                ),
+                CareInfoTile(
+                  icon: Icons.sync_rounded,
+                  label: l10n.careLastSyncedBattery,
+                  value: controller.presence.batteryLevel >= 0
+                      ? '${controller.presence.batteryLevel}%'
                       : '--',
                 ),
               ],
@@ -374,7 +439,9 @@ class _MyDeviceCard extends StatelessWidget {
   }
 
   String _lastSyncLabel(BuildContext context, AppLocalizations l10n) {
-    final lastUpload = controller.presence.lastSuccessfulUpload;
+    final lastUpload = controller.presence.lastSuccessfulUpload ??
+        controller.currentLocation?.syncedAt ??
+        controller.currentLocation?.capturedAt;
     if (lastUpload == null) return l10n.careNever;
     return relativeTimeLabel(context, lastUpload);
   }
@@ -542,8 +609,10 @@ class _SharingControls extends StatelessWidget {
       ),
     );
     if (confirmed != true) return;
+    if (!context.mounted) return;
     final messenger = ScaffoldMessenger.of(context);
     await controller.stopSharing();
+    if (!messenger.mounted) return;
     messenger.showSnackBar(
       SnackBar(
         behavior: SnackBarBehavior.floating,
@@ -591,7 +660,10 @@ class _ConnectedMembersSection extends StatelessWidget {
             isCharging: cards[index].presence?.isCharging ?? false,
             lastSeenLabel: relativeTimeLabel(
               context,
-              cards[index].location?.capturedAt ?? cards[index].grant.grantedAt,
+              cards[index].presence?.lastSuccessfulUpload ??
+                  cards[index].location?.syncedAt ??
+                  cards[index].location?.capturedAt ??
+                  cards[index].grant.grantedAt,
             ),
             onTap: () => Navigator.of(context).push(
               MaterialPageRoute<void>(

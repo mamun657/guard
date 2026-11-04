@@ -12,6 +12,7 @@ import android.location.LocationManager
 import android.os.Build
 import android.os.Bundle
 import android.os.IBinder
+import android.content.SharedPreferences
 import androidx.core.content.ContextCompat
 
 class FamilyLocationService : Service() {
@@ -62,6 +63,7 @@ class FamilyLocationService : Service() {
 
     private lateinit var locationManager: LocationManager
     private lateinit var notificationManager: SharingNotificationManager
+    private lateinit var preferences: SharedPreferences
 
     @Volatile
     private var running = false
@@ -114,6 +116,7 @@ class FamilyLocationService : Service() {
         super.onCreate()
         locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
         notificationManager = SharingNotificationManager(this)
+        preferences = getSharedPreferences(PREFERENCES_NAME, Context.MODE_PRIVATE)
         notificationManager.ensureChannel()
         stateProvider = {
             mapOf(
@@ -130,11 +133,26 @@ class FamilyLocationService : Service() {
     }
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+        if (intent == null) {
+            sessionId = preferences.getString(EXTRA_SESSION_ID, "") ?: ""
+            intervalSeconds = preferences.getInt(EXTRA_INTERVAL_SECONDS, intervalSeconds)
+            distanceFilterMeters = preferences.getInt(
+                EXTRA_DISTANCE_FILTER_METERS,
+                distanceFilterMeters
+            )
+            if (sessionId.isNotEmpty()) startForegroundTracking()
+            return START_STICKY
+        }
         when (intent?.action) {
             ACTION_START -> {
                 sessionId = intent.getStringExtra(EXTRA_SESSION_ID) ?: sessionId
                 intervalSeconds = intent.getIntExtra(EXTRA_INTERVAL_SECONDS, intervalSeconds)
                 distanceFilterMeters = intent.getIntExtra(EXTRA_DISTANCE_FILTER_METERS, distanceFilterMeters)
+                preferences.edit()
+                    .putString(EXTRA_SESSION_ID, sessionId)
+                    .putInt(EXTRA_INTERVAL_SECONDS, intervalSeconds)
+                    .putInt(EXTRA_DISTANCE_FILTER_METERS, distanceFilterMeters)
+                    .apply()
                 startForegroundTracking()
             }
             ACTION_PAUSE -> pauseTracking()
@@ -184,7 +202,7 @@ class FamilyLocationService : Service() {
                 locationManager.requestLocationUpdates(
                     provider,
                     intervalSeconds * 1000L,
-                    distanceFilterMeters.toFloat(),
+                    0f,
                     listener,
                     android.os.Looper.getMainLooper()
                 )
@@ -235,6 +253,7 @@ class FamilyLocationService : Service() {
         paused = false
         removeLocationUpdates()
         stopForeground(STOP_FOREGROUND_REMOVE)
+        preferences.edit().clear().apply()
         stopSelf()
     }
 
@@ -285,3 +304,4 @@ class FamilyLocationService : Service() {
 }
 
 private const val MAX_SEED_AGE_MS = 120000L
+private const val PREFERENCES_NAME = "family_location_service"

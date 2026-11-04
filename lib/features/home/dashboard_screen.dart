@@ -2,37 +2,30 @@ import 'package:flutter/material.dart';
 
 import '../../core/theme/app_colors.dart';
 import '../../l10n/generated/app_localizations.dart';
-import 'models/service_definition.dart';
-import 'widgets/maintenance_sheet.dart';
 import 'widgets/service_icons.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({
     super.key,
     required this.displayName,
-    required this.onMenuPressed,
+    this.onMenuPressed,
     required this.onNotificationsPressed,
     required this.onFamilySafetyPressed,
+    required this.onCareSignalPressed,
+    required this.onSilentSpeakPressed,
   });
 
   final String displayName;
-  final VoidCallback onMenuPressed;
+  final VoidCallback? onMenuPressed;
   final VoidCallback onNotificationsPressed;
   final VoidCallback onFamilySafetyPressed;
-
-  String _firstName(String name) {
-    final cleaned = name.trim();
-    if (cleaned.isEmpty) return '';
-    final parts = cleaned.split(RegExp(r'\s+'));
-    return parts.first;
-  }
+  final VoidCallback onCareSignalPressed;
+  final VoidCallback onSilentSpeakPressed;
 
   @override
   Widget build(BuildContext context) {
     final media = MediaQuery.of(context);
     final l10n = AppLocalizations.of(context)!;
-    final isBangla = Localizations.localeOf(context).languageCode == 'bn';
-
     String greeting;
     final hour = DateTime.now().hour;
     if (hour < 12) {
@@ -44,32 +37,6 @@ class DashboardScreen extends StatelessWidget {
     }
 
     final horizontalPadding = media.size.width > 480 ? 24.0 : 20.0;
-    final descriptionStyle = isBangla
-        ? Theme.of(context).textTheme.bodySmall?.copyWith(
-              fontSize: 12,
-              color: AppColors.textSecondary,
-              height: 1.3,
-            )
-        : Theme.of(context).textTheme.bodySmall?.copyWith(
-              fontSize: 12.5,
-              color: AppColors.textSecondary,
-              height: 1.3,
-            );
-    final titleStyle = isBangla
-        ? Theme.of(context).textTheme.titleMedium?.copyWith(
-              fontSize: 14,
-              fontWeight: FontWeight.w700,
-              color: AppColors.textPrimary,
-              height: 1.2,
-            )
-        : Theme.of(context).textTheme.titleMedium?.copyWith(
-              fontSize: 14.5,
-              fontWeight: FontWeight.w700,
-              color: AppColors.textPrimary,
-              letterSpacing: -0.1,
-              height: 1.2,
-            );
-
     return SafeArea(
       bottom: false,
       child: SingleChildScrollView(
@@ -84,14 +51,13 @@ class DashboardScreen extends StatelessWidget {
           children: [
             const SizedBox(height: 12),
             _DashboardHeader(
-              onMenu: onMenuPressed,
               onNotifications: onNotificationsPressed,
               tagline: l10n.brandTagline,
             ),
             const SizedBox(height: 20),
             _GreetingBlock(
               greeting: greeting,
-              name: _firstName(displayName),
+              name: displayName.trim().isEmpty ? 'there' : displayName.trim(),
               safetyActive: l10n.safetyActive,
             ),
             const SizedBox(height: 20),
@@ -100,34 +66,17 @@ class DashboardScreen extends StatelessWidget {
               body: l10n.protectedBody,
             ),
             const SizedBox(height: 24),
-            _SectionTitle(
-              title: l10n.quickActions,
-              seeAll: l10n.seeAll,
-            ),
+            _SectionTitle(title: l10n.quickActions),
             const SizedBox(height: 16),
             _QuickActionsGrid(
-              titleStyle: titleStyle,
-              descriptionStyle: descriptionStyle,
               onFamilySafetyPressed: onFamilySafetyPressed,
+              onCareSignalPressed: onCareSignalPressed,
+              onSilentSpeakPressed: onSilentSpeakPressed,
             ),
-            const SizedBox(height: 24),
-            _StayAlertBanner(
+            const SizedBox(height: 20),
+            StayAlertBanner(
               title: l10n.stayAlertTitle,
               body: l10n.stayAlertBody,
-            ),
-            const SizedBox(height: 24),
-            _SectionTitle(
-              title: l10n.recentActivity,
-              seeAll: l10n.seeAll,
-            ),
-            const SizedBox(height: 14),
-            _RecentActivityList(
-              callTitle: l10n.activityCallTitle,
-              screenshotTitle: l10n.activityScreenshotTitle,
-              linkTitle: l10n.activityLinkTitle,
-              highLabel: l10n.riskHigh,
-              mediumLabel: l10n.riskMedium,
-              lowLabel: l10n.riskLow,
             ),
             const SizedBox(height: 24),
           ],
@@ -139,12 +88,10 @@ class DashboardScreen extends StatelessWidget {
 
 class _DashboardHeader extends StatelessWidget {
   const _DashboardHeader({
-    required this.onMenu,
     required this.onNotifications,
     required this.tagline,
   });
 
-  final VoidCallback onMenu;
   final VoidCallback onNotifications;
   final String tagline;
 
@@ -152,15 +99,9 @@ class _DashboardHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        _IconCircle(
-          icon: Icons.menu_rounded,
-          onTap: onMenu,
-          background: Colors.white,
-          border: AppColors.border,
-          foreground: AppColors.textPrimary,
-        ),
-        const Spacer(),
-        Column(
+        const SizedBox(width: 44),
+        Expanded(
+          child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
             RichText(
@@ -184,7 +125,7 @@ class _DashboardHeader extends StatelessWidget {
             ),
             const SizedBox(height: 2),
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8),
+                padding: const EdgeInsets.symmetric(horizontal: 4),
               child: Text(
                 tagline,
                 maxLines: 1,
@@ -192,16 +133,16 @@ class _DashboardHeader extends StatelessWidget {
                 overflow: TextOverflow.ellipsis,
                 textAlign: TextAlign.center,
                 style: const TextStyle(
-                  fontSize: 9,
+                    fontSize: 8.5,
                   fontWeight: FontWeight.w700,
-                  letterSpacing: 1.2,
+                    letterSpacing: 0.8,
                   color: AppColors.textTertiary,
                 ),
               ),
             ),
           ],
         ),
-        const Spacer(),
+        ),
         _IconCircle(
           icon: Icons.notifications_none_rounded,
           onTap: onNotifications,
@@ -304,9 +245,10 @@ class _GreetingBlock extends StatelessWidget {
             border: Border.all(color: AppColors.border),
           ),
           child: const Center(
-            child: Text(
-              '🧑',
-              style: TextStyle(fontSize: 30),
+            child: Icon(
+              Icons.person_rounded,
+              size: 28,
+              color: AppColors.primaryDark,
             ),
           ),
         ),
@@ -326,10 +268,7 @@ class _GreetingBlock extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 2),
-              Row(
-                children: [
-                  Flexible(
-                    child: Text(
+              Text(
                       name,
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
@@ -338,14 +277,6 @@ class _GreetingBlock extends StatelessWidget {
                         fontSize: isBangla ? 22 : 24,
                         height: 1.1,
                       ),
-                    ),
-                  ),
-                  const SizedBox(width: 6),
-                  const Text(
-                    '👋',
-                    style: TextStyle(fontSize: 22),
-                  ),
-                ],
               ),
               const SizedBox(height: 4),
               Text(
@@ -429,10 +360,9 @@ class _ProtectionCard extends StatelessWidget {
 }
 
 class _SectionTitle extends StatelessWidget {
-  const _SectionTitle({required this.title, required this.seeAll});
+  const _SectionTitle({required this.title});
 
   final String title;
-  final String seeAll;
 
   @override
   Widget build(BuildContext context) {
@@ -453,33 +383,6 @@ class _SectionTitle extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(width: 8),
-        InkWell(
-          borderRadius: BorderRadius.circular(8),
-          onTap: () {},
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  seeAll,
-                  style: const TextStyle(
-                    fontSize: 13,
-                    fontWeight: FontWeight.w700,
-                    color: AppColors.primaryDark,
-                  ),
-                ),
-                const SizedBox(width: 2),
-                const Icon(
-                  Icons.chevron_right_rounded,
-                  size: 18,
-                  color: AppColors.primaryDark,
-                ),
-              ],
-            ),
-          ),
-        ),
       ],
     );
   }
@@ -487,113 +390,220 @@ class _SectionTitle extends StatelessWidget {
 
 class _QuickActionsGrid extends StatelessWidget {
   const _QuickActionsGrid({
-    required this.titleStyle,
-    required this.descriptionStyle,
     required this.onFamilySafetyPressed,
+    required this.onCareSignalPressed,
+    required this.onSilentSpeakPressed,
   });
 
-  final TextStyle? titleStyle;
-  final TextStyle? descriptionStyle;
   final VoidCallback onFamilySafetyPressed;
+  final VoidCallback onCareSignalPressed;
+  final VoidCallback onSilentSpeakPressed;
 
   @override
   Widget build(BuildContext context) {
-    final services = ServiceDefinition.all(context);
-    return LayoutBuilder(
-      builder: (context, constraints) {
-        final width = constraints.maxWidth;
-        const gap = 8.0;
-        final cell = (width - gap * 2) / 3;
-        return Wrap(
-          spacing: gap,
-          runSpacing: 14,
-          children: services
-              .map((s) => SizedBox(
-                    width: cell,
-                    child: _ServiceTile(
-                      service: s,
-                      titleStyle: titleStyle,
-                      descriptionStyle: descriptionStyle,
-                      onTap: () => _handleServiceTap(context, s),
+    final l10n = AppLocalizations.of(context)!;
+    return Column(
+      children: [
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Expanded(
+              child: _FeatureCard(
+                title: l10n.familySafetyTitle,
+                subtitle: l10n.familySafetySubtitle,
+                icon: FamilySafetyIcon(size: 52),
+                background: const Color(0xFFE6F5F0),
+                iconBackground: const Color(0xFFCDEBE1),
+                accent: const Color(0xFF0D756D),
+                onTap: onFamilySafetyPressed,
                     ),
-                  ))
-              .toList(),
+            ),
+            const SizedBox(width: 14),
+            Expanded(
+              child: _FeatureCard(
+                title: l10n.careSignalTitle,
+                subtitle: l10n.careSignalSubtitle,
+                icon: const Center(child: CareSignalIcon(size: 38)),
+                background: const Color(0xFFFFF0EA),
+                iconBackground: const Color(0xFFFFD8CF),
+                accent: const Color(0xFFE66759),
+                onTap: onCareSignalPressed,
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 14),
+        _SilentSpeakFeatureCard(onTap: onSilentSpeakPressed),
+      ],
         );
-      },
-    );
-  }
-
-  void _handleServiceTap(BuildContext context, ServiceDefinition service) {
-    if (service.key == ServiceKey.familySafety) {
-      onFamilySafetyPressed();
-      return;
-    }
-    MaintenanceSheet.show(context, service: service);
   }
 }
 
-class _ServiceTile extends StatelessWidget {
-  const _ServiceTile({
-    required this.service,
-    required this.onTap,
-    required this.titleStyle,
-    required this.descriptionStyle,
-  });
+class _SilentSpeakFeatureCard extends StatelessWidget {
+  const _SilentSpeakFeatureCard({required this.onTap});
 
-  final ServiceDefinition service;
   final VoidCallback onTap;
-  final TextStyle? titleStyle;
-  final TextStyle? descriptionStyle;
 
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
     return Material(
-      color: Colors.transparent,
+      color: const Color(0xFFF2ECFF),
+      borderRadius: BorderRadius.circular(20),
       child: InkWell(
         borderRadius: BorderRadius.circular(20),
         onTap: onTap,
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 4),
-          child: Column(
-            children: [
-              SizedBox(
-                width: 58,
-                height: 58,
-                child: Stack(
-                  alignment: Alignment.center,
+        child: Container(
+          constraints: const BoxConstraints(minHeight: 96),
+          padding: const EdgeInsets.all(14),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: const Color(0xFFD8C5FF)),
+          ),
+          child: Row(
                   children: [
                     Container(
-                      width: 58,
-                      height: 58,
-                      decoration: BoxDecoration(
-                        color: service.background,
+                width: 52,
+                height: 52,
+                decoration: const BoxDecoration(
+                  color: Color(0xFFE2D4FF),
                         shape: BoxShape.circle,
                       ),
+                child: ClipOval(child: const SilentSpeakIcon(size: 52)),
                     ),
-                    service.icon(size: 44),
+              const SizedBox(width: 14),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(
+                      l10n.silentSpeakTitle,
+                      style: const TextStyle(
+                        color: AppColors.textPrimary,
+                        fontSize: 15,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      l10n.silentSpeakSubtitle,
+                      style: const TextStyle(
+                        color: AppColors.textSecondary,
+                        fontSize: 12,
+                        height: 1.3,
+                      ),
+                    ),
                   ],
                 ),
               ),
-              const SizedBox(height: 8),
-              Text(
-                service.title(l10n),
-                textAlign: TextAlign.center,
-                maxLines: 2,
-                softWrap: true,
-                overflow: TextOverflow.visible,
-                style: titleStyle,
+              const SizedBox(width: 8),
+              const Icon(Icons.arrow_forward_rounded, color: Color(0xFF673AB7)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class _FeatureCard extends StatelessWidget {
+  const _FeatureCard({
+    required this.title,
+    required this.subtitle,
+    required this.icon,
+    required this.background,
+    required this.iconBackground,
+    required this.accent,
+    required this.onTap,
+  });
+
+  final String title;
+  final String subtitle;
+  final Widget icon;
+  final Color background;
+  final Color iconBackground;
+  final Color accent;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    return Material(
+      color: background,
+      borderRadius: BorderRadius.circular(20),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(20),
+        onTap: onTap,
+        child: Container(
+          height: 206,
+          padding: const EdgeInsets.fromLTRB(12, 14, 12, 12),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Align(
+                alignment: Alignment.center,
+                child: Container(
+                  width: 52,
+                  height: 52,
+                  decoration: BoxDecoration(
+                    color: iconBackground,
+                    shape: BoxShape.circle,
+                  ),
+                  child: ClipOval(child: icon),
+                ),
               ),
-              const SizedBox(height: 3),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 2),
+              const SizedBox(height: 10),
+              Text(
+                title,
+                textAlign: TextAlign.center,
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: const TextStyle(
+                  color: AppColors.textPrimary,
+                  fontSize: 14,
+                  fontWeight: FontWeight.w800,
+              ),
+              ),
+              const SizedBox(height: 4),
+              Expanded(
+                child: Center(
                 child: Text(
-                  service.description(l10n),
+                    subtitle,
                   textAlign: TextAlign.center,
-                  maxLines: 2,
-                  softWrap: true,
-                  overflow: TextOverflow.visible,
-                  style: descriptionStyle,
+                    maxLines: 3,
+                    overflow: TextOverflow.ellipsis,
+                    style: const TextStyle(
+                      color: AppColors.textSecondary,
+                      fontSize: 11.5,
+                      height: 1.25,
+                    ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 6),
+              Container(
+                height: 32,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.7),
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      l10n.openFeature,
+                      style: TextStyle(
+                        color: accent,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w800,
+                      ),
+                    ),
+                    const SizedBox(width: 4),
+                    Icon(Icons.arrow_forward_rounded, size: 14, color: accent),
+                  ],
                 ),
               ),
             ],
@@ -604,8 +614,8 @@ class _ServiceTile extends StatelessWidget {
   }
 }
 
-class _StayAlertBanner extends StatelessWidget {
-  const _StayAlertBanner({required this.title, required this.body});
+class StayAlertBanner extends StatelessWidget {
+  const StayAlertBanner({super.key, required this.title, required this.body});
 
   final String title;
   final String body;
@@ -684,8 +694,9 @@ class _StayAlertBanner extends StatelessWidget {
   }
 }
 
-class _RecentActivityList extends StatelessWidget {
-  const _RecentActivityList({
+class RecentActivityList extends StatelessWidget {
+  const RecentActivityList({
+    super.key,
     required this.callTitle,
     required this.screenshotTitle,
     required this.linkTitle,
@@ -792,9 +803,7 @@ class _ActivityRow extends StatelessWidget {
               color: iconBg,
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Center(
-              child: item.iconBuilder(size: 24, color: iconColor),
-            ),
+            child: Center(child: item.iconBuilder(size: 24, color: iconColor)),
           ),
           const SizedBox(width: 12),
           Expanded(

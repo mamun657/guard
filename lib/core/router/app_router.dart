@@ -22,12 +22,14 @@ class AppRouter extends StatefulWidget {
     required this.userService,
     required this.prefs,
     required this.localeController,
+    required this.beforeSignOut,
   });
 
   final AuthService authService;
   final UserService userService;
   final LocalPrefs prefs;
   final LocaleController localeController;
+  final Future<void> Function() beforeSignOut;
 
   @override
   State<AppRouter> createState() => _AppRouterState();
@@ -45,7 +47,8 @@ class _AppRouterState extends State<AppRouter> {
       if (!mounted || !_splashComplete) return;
       if (user != null) {
         _go(AppRoute.home);
-      } else if (widget.prefs.hasCompletedOnboarding && _route != AppRoute.login) {
+      } else if (widget.prefs.hasCompletedOnboarding &&
+          _route != AppRoute.login) {
         _go(AppRoute.login);
       }
     });
@@ -133,6 +136,7 @@ class _AppRouterState extends State<AppRouter> {
           prefs: widget.prefs,
           localeController: widget.localeController,
           onSignedOut: _signOut,
+          beforeSignOut: widget.beforeSignOut,
         );
     }
   }
@@ -155,10 +159,7 @@ class _AppRouterState extends State<AppRouter> {
           ),
         );
       },
-      child: KeyedSubtree(
-        key: ValueKey(_route),
-        child: _build(context),
-      ),
+      child: KeyedSubtree(key: ValueKey(_route), child: _build(context)),
     );
   }
 }

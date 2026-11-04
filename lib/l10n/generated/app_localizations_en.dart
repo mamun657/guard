@@ -16,6 +16,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get brandTagline => 'UNDERSTAND BEFORE YOU TRUST.';
 
   @override
+  String get loadingDefaultMessage => 'Loading...';
+
+  @override
   String get splashCredit => 'by BinaryPulse';
 
   @override
@@ -242,6 +245,18 @@ class AppLocalizationsEn extends AppLocalizations {
   String get quickActions => 'Quick Actions';
 
   @override
+  String get familySafetyTitle => 'Family Safety';
+
+  @override
+  String get familySafetySubtitle => 'Location, battery & trusted family';
+
+  @override
+  String get careSignalSubtitle => 'Voice assistance & family help';
+
+  @override
+  String get openFeature => 'Open';
+
+  @override
   String get seeAll => 'See All';
 
   @override
@@ -319,6 +334,12 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get navHistory => 'History';
+
+  @override
+  String get navFamily => 'Family';
+
+  @override
+  String get navCareSignal => 'Care Signal';
 
   @override
   String get navProfile => 'Profile';
@@ -630,6 +651,13 @@ class AppLocalizationsEn extends AppLocalizations {
   String get careInvitationNotFound => 'No invitation found for that code.';
 
   @override
+  String get careInvitationMalformed => 'That invitation code is not valid.';
+
+  @override
+  String get careInvitationLookupFailed =>
+      'The invitation could not be checked right now. Please try again.';
+
+  @override
   String get careInvitationCopied => 'Invitation code copied.';
 
   @override
@@ -674,7 +702,7 @@ class AppLocalizationsEn extends AppLocalizations {
       'You have been invited to connect on AmarGuard.';
 
   @override
-  String get careAcceptInvitation => 'Accept Invitation';
+  String get careAcceptInvitation => 'Request Access';
 
   @override
   String get careDeclineInvitation => 'Decline';
@@ -700,7 +728,7 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get careRequestAlreadyPending =>
-      'A request is already waiting for the device owner\'s approval.';
+      'Your request is waiting for the device owner\'s approval.';
 
   @override
   String get careRequestAlreadyProcessed =>
@@ -709,6 +737,19 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get careInvitationPermissionDenied =>
       'You do not have permission to send this request.';
+
+  @override
+  String get careApprovalPermissionDenied =>
+      'Could not approve this family request. Verify you are signed in as the device owner and try again.';
+
+  @override
+  String get careSharingStale => 'Sharing stale';
+
+  @override
+  String get careLiveBattery => 'Live battery';
+
+  @override
+  String get careLastSyncedBattery => 'Last synced battery';
 
   @override
   String get careWhatYouCanSee => 'What you can see';
@@ -1032,4 +1073,550 @@ class AppLocalizationsEn extends AppLocalizations {
   String careMemberSince(String date) {
     return 'Connected since $date';
   }
+
+  @override
+  String get careSignalTitle => 'Care Signal';
+
+  @override
+  String get careSignalTagline =>
+      'Voice to understand, confirm, then reach your family.';
+
+  @override
+  String get careSignalNeedHelp => 'Need Help';
+
+  @override
+  String get careSignalNeedHelpSubtitle =>
+      'Speak your request. Care Signal AI will prepare a verified help summary for you to review.';
+
+  @override
+  String get careSignalPrivacyNote =>
+      'Your recording is processed by Meta AI only after you give permission. Nothing is shared with your family until you confirm.';
+
+  @override
+  String get careSignalRecordingTitle => 'Recording your request';
+
+  @override
+  String get careSignalRecordingHint =>
+      'Tap the microphone and speak clearly in Bengali or English.';
+
+  @override
+  String get careSignalConsentTitle =>
+      'Allow Meta AI to process this recording?';
+
+  @override
+  String get careSignalConsentBody =>
+      'The recording will be sent securely to Meta Voice Transcribe to turn your speech into text. The audio is not stored after transcription.';
+
+  @override
+  String get careSignalConsentAllow => 'Allow and start recording';
+
+  @override
+  String get careSignalConsentDeny => 'Not now';
+
+  @override
+  String get careSignalStopRecording => 'Stop';
+
+  @override
+  String get careSignalCancel => 'Cancel';
+
+  @override
+  String get careSignalMicDenied =>
+      'Microphone permission was denied. Enable it in Android settings to record a request.';
+
+  @override
+  String get careSignalEmptyRecording =>
+      'No speech was captured. Please record again.';
+
+  @override
+  String get careSignalTranscribing => 'Transcribing your voice';
+
+  @override
+  String get careSignalTranscribingBody =>
+      'Meta Voice Transcribe is turning your speech into text.';
+
+  @override
+  String get careSignalTranscriptTitle => 'Check your words';
+
+  @override
+  String get careSignalTranscriptHint =>
+      'Correct any mistakes before continuing.';
+
+  @override
+  String get careSignalTranscriptLabel => 'Your request';
+
+  @override
+  String get careSignalEditTranscript => 'Edit transcript';
+
+  @override
+  String get careSignalContinue => 'Continue';
+
+  @override
+  String get careSignalProcessing => 'Care Signal AI is thinking';
+
+  @override
+  String get careSignalProcessingBody =>
+      'Reading your request and loading only the family data you already approved.';
+
+  @override
+  String get careSignalStepUnderstand => 'Understanding your request';
+
+  @override
+  String get careSignalStepContacts => 'Checking approved family contacts';
+
+  @override
+  String get careSignalStepLocation => 'Fetching authorized location status';
+
+  @override
+  String get careSignalStepBattery => 'Checking battery status';
+
+  @override
+  String get careSignalStepSummary => 'Preparing the help summary';
+
+  @override
+  String get careSignalSummaryTitle => 'Help summary';
+
+  @override
+  String get careSignalSummaryBody =>
+      'Review everything below before it is sent to your family.';
+
+  @override
+  String get careSignalOriginalStatement => 'Your original statement';
+
+  @override
+  String get careSignalAiInterpretation => 'AI assistance summary';
+
+  @override
+  String get careSignalLastKnownLocation => 'Last known location';
+
+  @override
+  String get careSignalLocationUnavailable =>
+      'No authorized location is available right now.';
+
+  @override
+  String get careSignalLocationFresh => 'Recently updated';
+
+  @override
+  String get careSignalLocationStale => 'Older location';
+
+  @override
+  String get careSignalLocationPaused => 'Location sharing is paused';
+
+  @override
+  String get careSignalLocationSharingDisabled =>
+      'Location sharing is turned off';
+
+  @override
+  String get careSignalBatteryInfo => 'Last reported battery';
+
+  @override
+  String get careSignalBatteryUnavailable =>
+      'Battery information is not available.';
+
+  @override
+  String get careSignalSuggestedActions => 'Suggested safe actions';
+
+  @override
+  String get careSignalRecipients => 'Who should be notified';
+
+  @override
+  String get careSignalNoRecipients =>
+      'No approved family member is available to receive help requests yet.';
+
+  @override
+  String get careSignalNoRecipientsBody =>
+      'On the location owner\'s phone, open Family Safety, approve the pending request, and keep the family connection active. This request cannot be sent until that approval is verified.';
+
+  @override
+  String get careSignalConfirmSendTitle => 'Send this help request?';
+
+  @override
+  String get careSignalConfirmSendBody =>
+      'Your family member will see your message, the AI summary, and the verified information listed here.';
+
+  @override
+  String get careSignalSendNow => 'Send now';
+
+  @override
+  String get careSignalSending => 'Sending';
+
+  @override
+  String get careSignalSentTitle => 'Help request saved';
+
+  @override
+  String get careSignalSentBody =>
+      'The request was saved. This does not confirm that the receiver has seen it.';
+
+  @override
+  String careSignalSavedFor(String name) {
+    return 'Request saved for $name. It remains available in their incoming requests if push notification is missed.';
+  }
+
+  @override
+  String get careSignalNotificationSubmitted =>
+      'FCM accepted the notification submission; this does not confirm delivery.';
+
+  @override
+  String get careSignalNotificationNotSubmitted =>
+      'Notification was not submitted. The saved request remains available in the inbox.';
+
+  @override
+  String get careSignalReceiverAcknowledged =>
+      'The receiver acknowledged the request.';
+
+  @override
+  String get careSignalApprovedRecipient => 'Approved';
+
+  @override
+  String get careSignalSuggestedMatch =>
+      'Suggested from your request; please confirm';
+
+  @override
+  String get careSignalStatusNew => 'New';
+
+  @override
+  String get careSignalStatusSaved => 'Saved';
+
+  @override
+  String get careSignalStatusNotificationSubmitted => 'FCM accepted';
+
+  @override
+  String get careSignalInboxTitle => 'Family Help Inbox';
+
+  @override
+  String get careSignalInboxEmpty => 'No help requests yet.';
+
+  @override
+  String get careSignalInboxEmptyBody =>
+      'When a family member asks for help, it will appear here.';
+
+  @override
+  String careSignalRequestFrom(String name) {
+    return 'From $name';
+  }
+
+  @override
+  String get careSignalCallMember => 'Call family member';
+
+  @override
+  String get careSignalViewLocation => 'View last known location';
+
+  @override
+  String get careSignalAcknowledge => 'Acknowledge help';
+
+  @override
+  String get careSignalAcknowledged => 'Request acknowledged';
+
+  @override
+  String get careSignalAcknowledgedBody =>
+      'The requester has been notified that you received their request.';
+
+  @override
+  String get careSignalStatusSent => 'Sent';
+
+  @override
+  String get careSignalStatusAcknowledged => 'Acknowledged';
+
+  @override
+  String get careSignalStatusPending => 'Pending';
+
+  @override
+  String get careSignalResponseTitle => 'Help request details';
+
+  @override
+  String careSignalCreatedAt(String date) {
+    return 'Created at $date';
+  }
+
+  @override
+  String get careSignalNotAvailable => 'Not available';
+
+  @override
+  String get careSignalBackToInbox => 'Back to inbox';
+
+  @override
+  String get careSignalFailed => 'Something went wrong';
+
+  @override
+  String get careSignalTryAgain => 'Try again';
+
+  @override
+  String get careSignalLoadingData => 'Loading authorized data';
+
+  @override
+  String get careSignalAwaitingConfirmation => 'Awaiting your confirmation';
+
+  @override
+  String get careSignalCancelled => 'Cancelled';
+
+  @override
+  String get careSignalRetry => 'Start over';
+
+  @override
+  String get careSignalSentRequests => 'My sent requests';
+
+  @override
+  String get careSignalSentRequestsEmpty =>
+      'You have not sent any help request yet.';
+
+  @override
+  String get careSignalSentRequestsEmptyBody =>
+      'When you ask for help, the request and its status will be listed here.';
+
+  @override
+  String get careSignalConfirm => 'OK';
+
+  @override
+  String get careSignalRequestTypeLost => 'Lost';
+
+  @override
+  String get careSignalRequestTypeEmergency => 'Urgent';
+
+  @override
+  String get careSignalRequestTypeCheckIn => 'Check-in';
+
+  @override
+  String get careSignalRequestTypeGeneral => 'General request';
+
+  @override
+  String get careSignalRequestTypeUnknown => 'Request';
+
+  @override
+  String get careSignalSenderLabel => 'Requested by';
+
+  @override
+  String get careSignalSentByYou => 'You sent this request';
+
+  @override
+  String get careSignalRecipientLabel => 'Notified';
+
+  @override
+  String get careSignalRequestTypeLabel => 'Type of request';
+
+  @override
+  String get careSignalNoPhoneNumber =>
+      'No phone number is shared for this request.';
+
+  @override
+  String get careSignalFamilyMember => 'Family member';
+
+  @override
+  String get silentSpeakTitle => 'Silent Speak';
+
+  @override
+  String get silentSpeakSubtitle =>
+      'Communicate and ask for help without communication barriers.';
+
+  @override
+  String get silentSpeakModeTitle => 'How would you like to communicate?';
+
+  @override
+  String get silentSpeakModeHint =>
+      'Choose one mode. You can change it at any time.';
+
+  @override
+  String get silentSpeakSpeakMode => 'I Cannot Speak';
+
+  @override
+  String get silentSpeakSpeakDescription =>
+      'Express needs using pictures and large messages.';
+
+  @override
+  String get silentSpeakListenMode => 'I Cannot Hear';
+
+  @override
+  String get silentSpeakListenDescription => 'Read what another person says.';
+
+  @override
+  String get silentSpeakRememberMode =>
+      'Remember my preferred mode on this device';
+
+  @override
+  String get silentSpeakSpeakTitle => 'Speak for Me';
+
+  @override
+  String get silentSpeakSpeakHint =>
+      'Choose one or more picture cards to build a simple message.';
+
+  @override
+  String get silentSpeakIntentLost => 'I am lost';
+
+  @override
+  String get silentSpeakIntentUnwell => 'I feel unwell';
+
+  @override
+  String get silentSpeakIntentWater => 'I need water';
+
+  @override
+  String get silentSpeakIntentHelp => 'I need help';
+
+  @override
+  String get silentSpeakIntentFamily => 'Contact my family';
+
+  @override
+  String get silentSpeakIntentHome => 'I want to go home';
+
+  @override
+  String get silentSpeakSelectPrompt => 'Choose a message card to begin.';
+
+  @override
+  String get silentSpeakShowMessage => 'Show message';
+
+  @override
+  String get silentSpeakAskFamily => 'Ask Family for Help';
+
+  @override
+  String get silentSpeakMessageTitle => 'Show this message';
+
+  @override
+  String get silentSpeakMessageHint => 'Show your screen to the other person.';
+
+  @override
+  String get silentSpeakCopy => 'Copy message';
+
+  @override
+  String get silentSpeakCopied => 'Message copied';
+
+  @override
+  String get silentSpeakReadAloudDisabled =>
+      'Read aloud is unavailable on this device.';
+
+  @override
+  String get silentSpeakListenTitle => 'Listen & Understand';
+
+  @override
+  String get silentSpeakListenHint =>
+      'Record only when you tap Start Listening. The original transcript stays on this device unless you choose to share a separate help message.';
+
+  @override
+  String get silentSpeakStartListening => 'Start Listening';
+
+  @override
+  String get silentSpeakStopRecording => 'Stop recording';
+
+  @override
+  String get silentSpeakMicrophoneActive => 'Microphone active';
+
+  @override
+  String get silentSpeakTranscriptTitle => 'What the other person said';
+
+  @override
+  String get silentSpeakTranscriptEmpty =>
+      'Your transcript will appear here. You can also type it.';
+
+  @override
+  String get silentSpeakTypeMessage => 'Please type the message';
+
+  @override
+  String get silentSpeakTypeHint =>
+      'Ask the other person to type what they said.';
+
+  @override
+  String get silentSpeakSpeakerPrompt =>
+      'I cannot hear. Please type your message.';
+
+  @override
+  String get silentSpeakShowSpeakerPrompt => 'Show this to the speaker';
+
+  @override
+  String get silentSpeakMyResponse => 'My response';
+
+  @override
+  String get silentSpeakResponseHint => 'Type a reply, or speak naturally.';
+
+  @override
+  String get silentSpeakTryAgain => 'Repeat / Try Again';
+
+  @override
+  String get silentSpeakPrivacyTitle => 'Before recording';
+
+  @override
+  String get silentSpeakPrivacyBody =>
+      'With your permission, this short recording is sent securely to Meta Voice Transcribe. It is not saved to your family account. You can choose typing instead.';
+
+  @override
+  String get silentSpeakFamilyTitle => 'Ask your family for help';
+
+  @override
+  String get silentSpeakFamilyHint =>
+      'Write only what you want to share. Your conversation transcript and recording will not be sent.';
+
+  @override
+  String get silentSpeakFamilyMessageLabel => 'Message to your family';
+
+  @override
+  String get silentSpeakFamilyMessageHint => 'Enter a short message';
+
+  @override
+  String get silentSpeakFamilyPreview => 'Review request';
+
+  @override
+  String get silentSpeakFamilyRecipients => 'Choose an approved family member';
+
+  @override
+  String get silentSpeakFamilyLoading => 'Checking approved family members';
+
+  @override
+  String get silentSpeakFamilyNoRecipients =>
+      'No approved family members are available for help requests.';
+
+  @override
+  String get silentSpeakFamilySignIn => 'Sign in to ask family for help.';
+
+  @override
+  String get silentSpeakFamilyPrivacy =>
+      'Only your confirmed message and chosen recipient will be sent. Location and audio are not attached.';
+
+  @override
+  String get silentSpeakFamilyConfirmTitle => 'Send this message?';
+
+  @override
+  String get silentSpeakFamilyConfirmBody =>
+      'Review the recipient and exact message. Nothing is sent until you confirm.';
+
+  @override
+  String get silentSpeakFamilySend => 'Confirm and send';
+
+  @override
+  String get silentSpeakFamilySending => 'Saving request';
+
+  @override
+  String get silentSpeakFamilySaved => 'Request saved on the server.';
+
+  @override
+  String get silentSpeakFamilyAcknowledged =>
+      'Your family member acknowledged the request.';
+
+  @override
+  String get silentSpeakFamilyNotificationSubmitted =>
+      'The notification service accepted the request; this does not confirm delivery or that it was seen.';
+
+  @override
+  String get silentSpeakFamilyNotificationFailed =>
+      'The request is saved, but notification was not accepted. Your family member can still find it in their inbox.';
+
+  @override
+  String get silentSpeakFamilyRequestFailed =>
+      'The request could not be saved. Check your connection and try again.';
+
+  @override
+  String get silentSpeakApiUnavailable =>
+      'Online transcription is unavailable. You can type the message instead.';
+
+  @override
+  String get silentSpeakAudioUnsupported =>
+      'This device cannot record the required audio format. Please type the message instead.';
+
+  @override
+  String get silentSpeakNoSpeech =>
+      'No speech was detected. Try again or type the message.';
+
+  @override
+  String get silentSpeakEnterMessage =>
+      'Enter a short message before continuing.';
+
+  @override
+  String get silentSpeakBack => 'Back';
+
+  @override
+  String get silentSpeakChangeMode => 'Change mode';
 }

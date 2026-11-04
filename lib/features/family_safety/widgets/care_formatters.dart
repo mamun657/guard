@@ -25,6 +25,44 @@ String relationshipLabel(BuildContext context, RelationshipType type) {
   }
 }
 
+String careSignalRelationshipLabel(BuildContext context, String raw) {
+  final l10n = AppLocalizations.of(context)!;
+  switch (raw) {
+    case 'parent':
+      return l10n.careRelationshipParent;
+    case 'child':
+      return l10n.careRelationshipChild;
+    case 'spouse':
+      return l10n.careRelationshipSpouse;
+    case 'sibling':
+      return l10n.careRelationshipSibling;
+    case 'guardian':
+      return l10n.careRelationshipGuardian;
+    case 'caregiver':
+      return l10n.careRelationshipCaregiver;
+    case 'friend':
+      return l10n.careRelationshipFriend;
+    default:
+      return l10n.careRelationshipOther;
+  }
+}
+
+String requestTypeLabel(BuildContext context, String raw) {
+  final l10n = AppLocalizations.of(context)!;
+  switch (raw) {
+    case 'lost':
+      return l10n.careSignalRequestTypeLost;
+    case 'emergency':
+      return l10n.careSignalRequestTypeEmergency;
+    case 'check_in':
+      return l10n.careSignalRequestTypeCheckIn;
+    case 'general':
+      return l10n.careSignalRequestTypeGeneral;
+    default:
+      return l10n.careSignalRequestTypeUnknown;
+  }
+}
+
 String relativeTimeLabel(BuildContext context, DateTime timestamp) {
   final l10n = AppLocalizations.of(context)!;
   final now = DateTime.now().toUtc();

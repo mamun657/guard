@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../models/family_models.dart';
 import 'battery_service.dart';
+import 'family_firestore_diagnostics.dart';
 import 'family_paths.dart';
 import 'family_repository.dart';
 import 'location_provider.dart';
@@ -22,10 +23,9 @@ class SharingSyncResult {
 
 class LocationSyncService {
   LocationSyncService({
-    required FamilyRepository repository,
-    required BatteryService batteryService,
-  }) : _repository = repository,
-       _batteryService = batteryService;
+    required this._repository,
+    required this._batteryService,
+  });
 
   final FamilyRepository _repository;
   final BatteryService _batteryService;
@@ -130,7 +130,19 @@ class LocationSyncService {
       'batteryObservedAt': FieldValue.serverTimestamp(),
     }, SetOptions(merge: true));
 
-    await batch.commit();
+    try {
+      await batch.commit();
+    } on FirebaseException catch (error) {
+      FamilyFirestoreDiagnostics.logFailure(
+        operation: 'batch_write',
+        path: 'users/<uid>/devices/<device>/{location/current,status/current}',
+        sharingState: SharingState.active.name,
+        role: 'owner',
+        source: 'background_location_sync',
+        error: error,
+      );
+      rethrow;
+    }
     _lastAccepted = record;
     return SharingSyncResult(accepted: true, record: record);
   }
@@ -147,10 +159,20 @@ class LocationSyncService {
       'lastHeartbeat': FieldValue.serverTimestamp(),
       'permissionState': permissionState,
     }, SetOptions(merge: true));
-    await batch.commit();
+    try {
+      await batch.commit();
+    } on FirebaseException catch (error) {
+      FamilyFirestoreDiagnostics.logFailure(
+        operation: 'batch_write',
+        path: 'users/<uid>/devices/<device>/status/current',
+        sharingState: state.name,
+        role: 'owner',
+        source: 'sharing_state_transition',
+        error: error,
+      );
+      rethrow;
+    }
   }
 
-  FirebaseFirestore get _firestore => FirebaseFirestore.instance;
-
-  WriteBatch _repositoryFirestoreBatch() => _firestore.batch();
+  WriteBatch _repositoryFirestoreBatch() => _repository.firestore.batch();
 }

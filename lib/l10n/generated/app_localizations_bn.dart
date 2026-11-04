@@ -16,6 +16,9 @@ class AppLocalizationsBn extends AppLocalizations {
   String get brandTagline => 'বিশ্বাসের আগে বুঝে নিন।';
 
   @override
+  String get loadingDefaultMessage => 'লোড হচ্ছে...';
+
+  @override
   String get splashCredit => 'BinaryPulse কর্তৃক নির্মিত';
 
   @override
@@ -242,6 +245,18 @@ class AppLocalizationsBn extends AppLocalizations {
   String get quickActions => 'দ্রুত কাজ';
 
   @override
+  String get familySafetyTitle => 'পরিবারের সুরক্ষা';
+
+  @override
+  String get familySafetySubtitle => 'লোকেশন, ব্যাটারি ও বিশ্বস্ত পরিবার';
+
+  @override
+  String get careSignalSubtitle => 'কণ্ঠ সহায়তা ও পরিবারের সাহায্য';
+
+  @override
+  String get openFeature => 'খুলুন';
+
+  @override
   String get seeAll => 'সব দেখুন';
 
   @override
@@ -319,6 +334,12 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get navHistory => 'ইতিহাস';
+
+  @override
+  String get navFamily => 'পরিবার';
+
+  @override
+  String get navCareSignal => 'কেয়ার সিগন্যাল';
 
   @override
   String get navProfile => 'প্রোফাইল';
@@ -632,6 +653,13 @@ class AppLocalizationsBn extends AppLocalizations {
   String get careInvitationNotFound => 'এই কোডের কোনো আমন্ত্রণ পাওয়া যায়নি।';
 
   @override
+  String get careInvitationMalformed => 'এই আমন্ত্রণ কোডটি সঠিক নয়।';
+
+  @override
+  String get careInvitationLookupFailed =>
+      'এই মুহূর্তে আমন্ত্রণ যাচাই করা যায়নি। আবার চেষ্টা করুন।';
+
+  @override
   String get careInvitationCopied => 'আমন্ত্রণ কোড কপি হয়েছে।';
 
   @override
@@ -676,7 +704,7 @@ class AppLocalizationsBn extends AppLocalizations {
       'আপনাকে AmarGuard এ যুক্ত হতে আমন্ত্রণ জানানো হয়েছে।';
 
   @override
-  String get careAcceptInvitation => 'আমন্ত্রণ গ্রহণ করুন';
+  String get careAcceptInvitation => 'অনুমতির অনুরোধ করুন';
 
   @override
   String get careDeclineInvitation => 'বাতিল করুন';
@@ -710,6 +738,19 @@ class AppLocalizationsBn extends AppLocalizations {
 
   @override
   String get careInvitationPermissionDenied => 'এই অনুরোধ পাঠানোর অনুমতি নেই।';
+
+  @override
+  String get careApprovalPermissionDenied =>
+      'এই পারিবারিক অনুরোধ অনুমোদন করা যায়নি। ডিভাইস মালিক হিসেবে সাইন ইন আছেন কি না যাচাই করে আবার চেষ্টা করুন।';
+
+  @override
+  String get careSharingStale => 'শেয়ার হালনাগাদ নেই';
+
+  @override
+  String get careLiveBattery => 'বর্তমান ব্যাটারি';
+
+  @override
+  String get careLastSyncedBattery => 'শেষ সিঙ্ক হওয়া ব্যাটারি';
 
   @override
   String get careWhatYouCanSee => 'আপনি যা দেখতে পারবেন';
@@ -1036,4 +1077,547 @@ class AppLocalizationsBn extends AppLocalizations {
   String careMemberSince(String date) {
     return '$date থেকে যুক্ত';
   }
+
+  @override
+  String get careSignalTitle => 'কেয়ার সিগন্যাল';
+
+  @override
+  String get careSignalTagline =>
+      'কথা বুঝুন, নিশ্চিত করুন, তারপর পরিবারকে জানান।';
+
+  @override
+  String get careSignalNeedHelp => 'সাহায্য দরকার';
+
+  @override
+  String get careSignalNeedHelpSubtitle =>
+      'আপনার প্রয়োজন বলুন। কেয়ার সিগন্যাল এআই যাচাই করা সহায়তার সারাংশ তৈরি করে আপনাকে দেখাবে।';
+
+  @override
+  String get careSignalPrivacyNote =>
+      'আপনার অনুমতির পরেই রেকর্ডিং মেটা এআই প্রসেস করে। আপনি নিশ্চিত করার আগে পরিবারের কাছে কিছুই পাঠানো হয় না।';
+
+  @override
+  String get careSignalRecordingTitle => 'আপনার প্রয়োজন রেকর্ড করা হচ্ছে';
+
+  @override
+  String get careSignalRecordingHint =>
+      'মাইক্রোফোনে চাপ দিন এবং বাংলা বা ইংরেজিতে স্পষ্টভাবে বলুন।';
+
+  @override
+  String get careSignalConsentTitle => 'মেটা এআই এই রেকর্ডিং প্রসেস করতে দেবে?';
+
+  @override
+  String get careSignalConsentBody =>
+      'আপনার কথাকে লেখায় রূপান্তর করতে রেকর্ডিংটি নিরাপদভাবে মেটা ভয়েস ট্রান্সক্রাইবে পাঠানো হবে। ট্রান্সক্রিপশনের পর অডিও রাখা হয় না।';
+
+  @override
+  String get careSignalConsentAllow => 'অনুমতি দিন এবং রেকর্ড শুরু করুন';
+
+  @override
+  String get careSignalConsentDeny => 'এখন নয়';
+
+  @override
+  String get careSignalStopRecording => 'থামুন';
+
+  @override
+  String get careSignalCancel => 'বাতিল';
+
+  @override
+  String get careSignalMicDenied =>
+      'মাইক্রোফোনের অনুমতি পাওয়া যায়নি। অনুরোধ রেকর্ড করতে অ্যান্ড্রয়েড সেটিংসে চালু করুন।';
+
+  @override
+  String get careSignalEmptyRecording =>
+      'কোনো কথা রেকর্ড হয়নি। আবার রেকর্ড করুন।';
+
+  @override
+  String get careSignalTranscribing => 'আপনার কথা লেখায় রূপান্তর হচ্ছে';
+
+  @override
+  String get careSignalTranscribingBody =>
+      'মেটা ভয়েস ট্রান্সক্রাইব আপনার কথাকে লেখায় নিচ্ছে।';
+
+  @override
+  String get careSignalTranscriptTitle => 'আপনার কথা যাচাই করুন';
+
+  @override
+  String get careSignalTranscriptHint => 'এগিয়ে যাওয়ার আগে ভুলগুলো ঠিক করুন।';
+
+  @override
+  String get careSignalTranscriptLabel => 'আপনার প্রয়োজন';
+
+  @override
+  String get careSignalEditTranscript => 'লেখা সম্পাদনা করুন';
+
+  @override
+  String get careSignalContinue => 'এগিয়ে যান';
+
+  @override
+  String get careSignalProcessing => 'কেয়ার সিগন্যাল এআই ভাবছে';
+
+  @override
+  String get careSignalProcessingBody =>
+      'আপনার প্রয়োজন বুঝছে এবং শুধু আপনার অনুমোদিত পরিবারের তথ্য নিচ্ছে।';
+
+  @override
+  String get careSignalStepUnderstand => 'আপনার প্রয়োজন বোঝা হচ্ছে';
+
+  @override
+  String get careSignalStepContacts => 'অনুমোদিত পরিবারের সদস্য যাচাই হচ্ছে';
+
+  @override
+  String get careSignalStepLocation => 'অনুমোদিত লোকেশনের অবস্থা নেওয়া হচ্ছে';
+
+  @override
+  String get careSignalStepBattery => 'ব্যাটারির অবস্থা যাচাই হচ্ছে';
+
+  @override
+  String get careSignalStepSummary => 'সহায়তার সারাংশ তৈরি হচ্ছে';
+
+  @override
+  String get careSignalSummaryTitle => 'সহায়তার সারাংশ';
+
+  @override
+  String get careSignalSummaryBody =>
+      'পরিবারের কাছে পাঠানোর আগে নিচের সবকিছু যাচাই করুন।';
+
+  @override
+  String get careSignalOriginalStatement => 'আপনার মূল কথা';
+
+  @override
+  String get careSignalAiInterpretation => 'এআই সহায়তার সারাংশ';
+
+  @override
+  String get careSignalLastKnownLocation => 'শেষ জানা অবস্থান';
+
+  @override
+  String get careSignalLocationUnavailable =>
+      'এই মুহূর্তে কোনো অনুমোদিত লোকেশনের তথ্য নেই।';
+
+  @override
+  String get careSignalLocationFresh => 'সদ্য হালনাগাদ হয়েছে';
+
+  @override
+  String get careSignalLocationStale => 'পুরোনো অবস্থান';
+
+  @override
+  String get careSignalLocationPaused => 'লোকেশন শেয়ারিং বন্ধ আছে';
+
+  @override
+  String get careSignalLocationSharingDisabled =>
+      'লোকেশন শেয়ারিং বন্ধ করা আছে';
+
+  @override
+  String get careSignalBatteryInfo => 'শেষ জানা ব্যাটারি';
+
+  @override
+  String get careSignalBatteryUnavailable => 'ব্যাটারির তথ্য পাওয়া যায়নি।';
+
+  @override
+  String get careSignalSuggestedActions => 'নিরাপদ পরামর্শ';
+
+  @override
+  String get careSignalRecipients => 'কাকে জানানো হবে';
+
+  @override
+  String get careSignalNoRecipients =>
+      'এখনো কোনো অনুমোদিত পরিবারের সদস্য নেই যিনি সহায়তার অনুরোধ পেতে পারেন।';
+
+  @override
+  String get careSignalNoRecipientsBody =>
+      'লোকেশন মালিকের ফোনে Family Safety খুলে অপেক্ষমাণ অনুরোধ অনুমোদন করুন এবং সংযোগ সক্রিয় রাখুন। অনুমোদন যাচাই না হওয়া পর্যন্ত এই অনুরোধ পাঠানো যাবে না।';
+
+  @override
+  String get careSignalConfirmSendTitle => 'সহায়তার অনুরোধ পাঠাবেন?';
+
+  @override
+  String get careSignalConfirmSendBody =>
+      'আপনার পরিবারের সদস্য আপনার কথা, এআই সারাংশ এবং এখানে দেওয়া যাচাই করা তথ্য দেখতে পাবেন।';
+
+  @override
+  String get careSignalSendNow => 'এখনই পাঠান';
+
+  @override
+  String get careSignalSending => 'পাঠানো হচ্ছে';
+
+  @override
+  String get careSignalSentTitle => 'সহায়তার অনুরোধ সংরক্ষণ করা হয়েছে';
+
+  @override
+  String get careSignalSentBody =>
+      'অনুরোধটি সংরক্ষণ করা হয়েছে। এর মানে এই নয় যে প্রাপক এটি দেখেছেন।';
+
+  @override
+  String careSignalSavedFor(String name) {
+    return '$name-এর জন্য অনুরোধটি সংরক্ষণ করা হয়েছে। পুশ নোটিফিকেশন না গেলেও এটি তাঁর ইনকামিং অনুরোধে থাকবে।';
+  }
+
+  @override
+  String get careSignalNotificationSubmitted =>
+      'FCM নোটিফিকেশন পাঠানোর অনুরোধ গ্রহণ করেছে; এটি ডেলিভারি নিশ্চিত করে না।';
+
+  @override
+  String get careSignalNotificationNotSubmitted =>
+      'নোটিফিকেশন পাঠানো যায়নি। সংরক্ষিত অনুরোধটি ইনবক্সে থাকবে।';
+
+  @override
+  String get careSignalReceiverAcknowledged => 'প্রাপক অনুরোধটি গ্রহণ করেছেন।';
+
+  @override
+  String get careSignalApprovedRecipient => 'অনুমোদিত';
+
+  @override
+  String get careSignalSuggestedMatch =>
+      'আপনার অনুরোধ অনুযায়ী প্রস্তাবিত; নিশ্চিত করুন';
+
+  @override
+  String get careSignalStatusNew => 'নতুন';
+
+  @override
+  String get careSignalStatusSaved => 'সংরক্ষিত';
+
+  @override
+  String get careSignalStatusNotificationSubmitted => 'FCM গ্রহণ করেছে';
+
+  @override
+  String get careSignalInboxTitle => 'পরিবার সহায়তা ইনবক্স';
+
+  @override
+  String get careSignalInboxEmpty => 'এখনো কোনো সহায়তার অনুরোধ নেই।';
+
+  @override
+  String get careSignalInboxEmptyBody =>
+      'পরিবারের কেউ সাহায্য চাইলে সেটি এখানে দেখা যাবে।';
+
+  @override
+  String careSignalRequestFrom(String name) {
+    return '$name থেকে';
+  }
+
+  @override
+  String get careSignalCallMember => 'পরিবারের সদস্যকে কল করুন';
+
+  @override
+  String get careSignalViewLocation => 'শেষ জানা অবস্থান দেখুন';
+
+  @override
+  String get careSignalAcknowledge => 'সহায়তা গ্রহণ করেছি';
+
+  @override
+  String get careSignalAcknowledged => 'অনুরোধ গ্রহণ করা হয়েছে';
+
+  @override
+  String get careSignalAcknowledgedBody =>
+      'অনুরোধকারীকে জানানো হয়েছে যে আপনি তাঁর অনুরোধ পেয়েছেন।';
+
+  @override
+  String get careSignalStatusSent => 'পাঠানো হয়েছে';
+
+  @override
+  String get careSignalStatusAcknowledged => 'গ্রহণ করা হয়েছে';
+
+  @override
+  String get careSignalStatusPending => 'অপেক্ষমাণ';
+
+  @override
+  String get careSignalResponseTitle => 'সহায়তার অনুরোধের বিবরণ';
+
+  @override
+  String careSignalCreatedAt(String date) {
+    return '$date তৈরি হয়েছে';
+  }
+
+  @override
+  String get careSignalNotAvailable => 'পাওয়া যায়নি';
+
+  @override
+  String get careSignalBackToInbox => 'ইনবক্সে ফিরে যান';
+
+  @override
+  String get careSignalFailed => 'কিছু একটা সমস্যা হয়েছে';
+
+  @override
+  String get careSignalTryAgain => 'আবার চেষ্টা করুন';
+
+  @override
+  String get careSignalLoadingData => 'অনুমোদিত তথ্য লোড হচ্ছে';
+
+  @override
+  String get careSignalAwaitingConfirmation => 'আপনার নিশ্চিতকরণের অপেক্ষায়';
+
+  @override
+  String get careSignalCancelled => 'বাতিল করা হয়েছে';
+
+  @override
+  String get careSignalRetry => 'নতুন করে শুরু করুন';
+
+  @override
+  String get careSignalSentRequests => 'আমার পাঠানো অনুরোধ';
+
+  @override
+  String get careSignalSentRequestsEmpty =>
+      'আপনি এখনো কোনো সহায়তার অনুরোধ পাঠাননি।';
+
+  @override
+  String get careSignalSentRequestsEmptyBody =>
+      'সাহায্য চাইলে অনুরোধটি এবং তার অবস্থা এখানে দেখা যাবে।';
+
+  @override
+  String get careSignalConfirm => 'ঠিক আছে';
+
+  @override
+  String get careSignalRequestTypeLost => 'পথ হারানো';
+
+  @override
+  String get careSignalRequestTypeEmergency => 'জরুরি';
+
+  @override
+  String get careSignalRequestTypeCheckIn => 'খবর দিন';
+
+  @override
+  String get careSignalRequestTypeGeneral => 'সাধারণ অনুরোধ';
+
+  @override
+  String get careSignalRequestTypeUnknown => 'অনুরোধ';
+
+  @override
+  String get careSignalSenderLabel => 'অনুরোধকারী';
+
+  @override
+  String get careSignalSentByYou => 'আপনিই এই অনুরোধটি পাঠিয়েছেন';
+
+  @override
+  String get careSignalRecipientLabel => 'কাকে জানানো হয়েছে';
+
+  @override
+  String get careSignalRequestTypeLabel => 'অনুরোধের ধরন';
+
+  @override
+  String get careSignalNoPhoneNumber =>
+      'এই অনুরোধে কোনো ফোন নম্বর শেয়ার করা হয়নি।';
+
+  @override
+  String get careSignalFamilyMember => 'পরিবারের সদস্য';
+
+  @override
+  String get silentSpeakTitle => 'সাইলেন্ট স্পিক';
+
+  @override
+  String get silentSpeakSubtitle =>
+      'যোগাযোগের বাধা ছাড়াই কথা জানান এবং সাহায্য চান।';
+
+  @override
+  String get silentSpeakModeTitle => 'আপনি কীভাবে যোগাযোগ করতে চান?';
+
+  @override
+  String get silentSpeakModeHint =>
+      'একটি পদ্ধতি বেছে নিন। যেকোনো সময় পরিবর্তন করতে পারবেন।';
+
+  @override
+  String get silentSpeakSpeakMode => 'আমি কথা বলতে পারি না';
+
+  @override
+  String get silentSpeakSpeakDescription =>
+      'ছবি ও বড় লেখার মাধ্যমে নিজের প্রয়োজন জানান।';
+
+  @override
+  String get silentSpeakListenMode => 'আমি শুনতে পাই না';
+
+  @override
+  String get silentSpeakListenDescription => 'অন্য ব্যক্তি কী বলছেন তা পড়ুন।';
+
+  @override
+  String get silentSpeakRememberMode =>
+      'এই ডিভাইসে আমার পছন্দের পদ্ধতি মনে রাখুন';
+
+  @override
+  String get silentSpeakSpeakTitle => 'আমার হয়ে বলুন';
+
+  @override
+  String get silentSpeakSpeakHint =>
+      'সহজ বার্তা তৈরি করতে এক বা একাধিক ছবি বেছে নিন।';
+
+  @override
+  String get silentSpeakIntentLost => 'আমি পথ হারিয়েছি';
+
+  @override
+  String get silentSpeakIntentUnwell => 'আমার শরীর ভালো লাগছে না';
+
+  @override
+  String get silentSpeakIntentWater => 'আমার পানি দরকার';
+
+  @override
+  String get silentSpeakIntentHelp => 'আমার সাহায্য দরকার';
+
+  @override
+  String get silentSpeakIntentFamily => 'আমার পরিবারের সঙ্গে যোগাযোগ করুন';
+
+  @override
+  String get silentSpeakIntentHome => 'আমি বাড়ি যেতে চাই';
+
+  @override
+  String get silentSpeakSelectPrompt => 'শুরু করতে একটি বার্তা বেছে নিন।';
+
+  @override
+  String get silentSpeakShowMessage => 'বার্তা দেখান';
+
+  @override
+  String get silentSpeakAskFamily => 'পরিবারের কাছে সাহায্য চান';
+
+  @override
+  String get silentSpeakMessageTitle => 'এই বার্তাটি দেখান';
+
+  @override
+  String get silentSpeakMessageHint => 'অন্য ব্যক্তিকে আপনার স্ক্রিনটি দেখান।';
+
+  @override
+  String get silentSpeakCopy => 'বার্তা কপি করুন';
+
+  @override
+  String get silentSpeakCopied => 'বার্তা কপি হয়েছে';
+
+  @override
+  String get silentSpeakReadAloudDisabled =>
+      'এই ডিভাইসে জোরে পড়ার সুবিধা নেই।';
+
+  @override
+  String get silentSpeakListenTitle => 'শুনুন ও বুঝুন';
+
+  @override
+  String get silentSpeakListenHint =>
+      'শুধু শুনুন বোতামে চাপ দিলে রেকর্ড হবে। আলাদা সাহায্যের বার্তা শেয়ার না করলে মূল ট্রান্সক্রিপ্ট এই ডিভাইসেই থাকবে।';
+
+  @override
+  String get silentSpeakStartListening => 'শোনা শুরু করুন';
+
+  @override
+  String get silentSpeakStopRecording => 'রেকর্ড থামান';
+
+  @override
+  String get silentSpeakMicrophoneActive => 'মাইক্রোফোন চালু';
+
+  @override
+  String get silentSpeakTranscriptTitle => 'অন্য ব্যক্তি যা বলেছেন';
+
+  @override
+  String get silentSpeakTranscriptEmpty =>
+      'ট্রান্সক্রিপ্ট এখানে দেখা যাবে। চাইলে নিজে লিখতে পারেন।';
+
+  @override
+  String get silentSpeakTypeMessage => 'অনুগ্রহ করে বার্তাটি লিখুন';
+
+  @override
+  String get silentSpeakTypeHint => 'অন্য ব্যক্তিকে তার কথা লিখে দিতে বলুন।';
+
+  @override
+  String get silentSpeakSpeakerPrompt =>
+      'আমি শুনতে পাই না। অনুগ্রহ করে আপনার বার্তাটি লিখুন।';
+
+  @override
+  String get silentSpeakShowSpeakerPrompt => 'কথা বলা ব্যক্তিকে দেখান';
+
+  @override
+  String get silentSpeakMyResponse => 'আমার উত্তর';
+
+  @override
+  String get silentSpeakResponseHint =>
+      'উত্তর লিখুন অথবা স্বাভাবিকভাবে কথা বলুন।';
+
+  @override
+  String get silentSpeakTryAgain => 'আবার শুনুন / চেষ্টা করুন';
+
+  @override
+  String get silentSpeakPrivacyTitle => 'রেকর্ড করার আগে';
+
+  @override
+  String get silentSpeakPrivacyBody =>
+      'আপনার অনুমতিতে এই ছোট রেকর্ডিংটি নিরাপদে মেটা ভয়েস ট্রান্সক্রাইবে পাঠানো হবে। এটি আপনার পরিবারের অ্যাকাউন্টে সংরক্ষণ করা হবে না। চাইলে লিখে দিতে পারেন।';
+
+  @override
+  String get silentSpeakFamilyTitle => 'পরিবারের কাছে সাহায্য চান';
+
+  @override
+  String get silentSpeakFamilyHint =>
+      'শুধু যে তথ্যটি শেয়ার করতে চান সেটি লিখুন। কথোপকথনের ট্রান্সক্রিপ্ট বা রেকর্ডিং পাঠানো হবে না।';
+
+  @override
+  String get silentSpeakFamilyMessageLabel => 'পরিবারকে পাঠানোর বার্তা';
+
+  @override
+  String get silentSpeakFamilyMessageHint => 'সংক্ষেপে লিখুন';
+
+  @override
+  String get silentSpeakFamilyPreview => 'অনুরোধ যাচাই করুন';
+
+  @override
+  String get silentSpeakFamilyRecipients => 'অনুমোদিত পরিবারের একজনকে বেছে নিন';
+
+  @override
+  String get silentSpeakFamilyLoading => 'অনুমোদিত সদস্য যাচাই হচ্ছে';
+
+  @override
+  String get silentSpeakFamilyNoRecipients =>
+      'সাহায্যের অনুরোধ নেওয়ার মতো কোনো অনুমোদিত সদস্য নেই।';
+
+  @override
+  String get silentSpeakFamilySignIn =>
+      'পরিবারের কাছে সাহায্য চাইতে সাইন ইন করুন।';
+
+  @override
+  String get silentSpeakFamilyPrivacy =>
+      'শুধু আপনার নিশ্চিত করা বার্তা ও বেছে নেওয়া প্রাপক পাঠানো হবে। লোকেশন বা অডিও যুক্ত হবে না।';
+
+  @override
+  String get silentSpeakFamilyConfirmTitle => 'এই বার্তাটি পাঠাবেন?';
+
+  @override
+  String get silentSpeakFamilyConfirmBody =>
+      'প্রাপক ও সঠিক বার্তাটি যাচাই করুন। নিশ্চিত না করা পর্যন্ত কিছুই পাঠানো হবে না।';
+
+  @override
+  String get silentSpeakFamilySend => 'নিশ্চিত করে পাঠান';
+
+  @override
+  String get silentSpeakFamilySending => 'অনুরোধ সংরক্ষণ হচ্ছে';
+
+  @override
+  String get silentSpeakFamilySaved => 'অনুরোধ সার্ভারে সংরক্ষণ করা হয়েছে।';
+
+  @override
+  String get silentSpeakFamilyAcknowledged =>
+      'আপনার পরিবারের সদস্য অনুরোধটি গ্রহণ করেছেন।';
+
+  @override
+  String get silentSpeakFamilyNotificationSubmitted =>
+      'নোটিফিকেশন সেবা অনুরোধ গ্রহণ করেছে; এটি ডেলিভারি বা দেখা নিশ্চিত করে না।';
+
+  @override
+  String get silentSpeakFamilyNotificationFailed =>
+      'অনুরোধ সংরক্ষিত হয়েছে, তবে নোটিফিকেশন পাঠানো যায়নি। পরিবারের সদস্য ইনবক্সে অনুরোধটি দেখতে পাবেন।';
+
+  @override
+  String get silentSpeakFamilyRequestFailed =>
+      'অনুরোধ সংরক্ষণ করা যায়নি। সংযোগ পরীক্ষা করে আবার চেষ্টা করুন।';
+
+  @override
+  String get silentSpeakApiUnavailable =>
+      'অনলাইনে ট্রান্সক্রিপশন সুবিধা পাওয়া যাচ্ছে না। চাইলে বার্তাটি লিখে দিন।';
+
+  @override
+  String get silentSpeakAudioUnsupported =>
+      'এই ডিভাইসে প্রয়োজনীয় অডিও ফরম্যাটে রেকর্ড করা যায় না। অনুগ্রহ করে বার্তাটি লিখুন।';
+
+  @override
+  String get silentSpeakNoSpeech =>
+      'কোনো কথা শনাক্ত হয়নি। আবার চেষ্টা করুন অথবা বার্তাটি লিখুন।';
+
+  @override
+  String get silentSpeakEnterMessage =>
+      'এগিয়ে যাওয়ার আগে সংক্ষিপ্ত বার্তা লিখুন।';
+
+  @override
+  String get silentSpeakBack => 'ফিরে যান';
+
+  @override
+  String get silentSpeakChangeMode => 'পদ্ধতি পরিবর্তন';
 }

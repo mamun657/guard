@@ -7,20 +7,18 @@ enum FamilySafetyErrorCode {
   invitationNotFound,
   invitationExpired,
   invitationClosed,
+  invitationMalformed,
   invalidInvitation,
   duplicateRequest,
   alreadyProcessed,
   permissionDenied,
+  approvalPermissionDenied,
   network,
   unknown,
 }
 
 class FamilySafetyException implements Exception {
-  FamilySafetyException(
-    this.code, {
-    this.message,
-    this.cause,
-  });
+  FamilySafetyException(this.code, {this.message, this.cause});
 
   final FamilySafetyErrorCode code;
   final String? message;

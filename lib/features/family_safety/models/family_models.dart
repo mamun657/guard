@@ -433,8 +433,11 @@ class FamilyInvitation {
     return FamilyInvitation(
       invitationId: invitationId,
       ownerUid: (data['ownerUid'] as String?) ?? '',
-      ownerDisplayName:
-          (data['ownerDisplayName'] as String?) ?? 'Family member',
+      ownerDisplayName: familyPersonLabel(
+        displayName: data['ownerDisplayName'],
+        email: data['ownerEmail'],
+        fallback: 'AmarGuard user',
+      ),
       createdAt: _toDateTime(data['createdAt']) ?? DateTime.now().toUtc(),
       expiresAt: _toDateTime(data['expiresAt']) ?? DateTime.now().toUtc(),
       status: (data['status'] as String?) ?? 'open',
@@ -452,6 +455,18 @@ class FamilyInvitation {
   }
 }
 
+String familyPersonLabel({
+  dynamic displayName,
+  dynamic email,
+  String fallback = 'Family member',
+}) {
+  final name = displayName is String ? displayName.trim() : '';
+  if (name.isNotEmpty) return name;
+  final mail = email is String ? email.trim() : '';
+  if (mail.isNotEmpty) return mail;
+  return fallback;
+}
+
 class ConnectionRequest {
   const ConnectionRequest({
     required this.viewerUid,
@@ -461,8 +476,10 @@ class ConnectionRequest {
     required this.viewerEmail,
     required this.requestedAt,
     required this.status,
+    this.deviceId,
     this.relationship = RelationshipType.other,
     this.requestedCapabilities = const <String>[],
+    this.alreadyPending = false,
   });
 
   final String viewerUid;
@@ -470,10 +487,12 @@ class ConnectionRequest {
   final String ownerUid;
   final String viewerDisplayName;
   final String viewerEmail;
+  final String? deviceId;
   final DateTime requestedAt;
   final String status;
   final RelationshipType relationship;
   final List<String> requestedCapabilities;
+  final bool alreadyPending;
 
   bool get isPending => status == 'pending';
 
@@ -482,6 +501,7 @@ class ConnectionRequest {
     required String viewerUid,
     required String invitationId,
     required String ownerUid,
+    bool alreadyPending = false,
   }) {
     final rawRelationship = data['relationship'];
     final relationship = RelationshipType.values.firstWhere(
@@ -496,13 +516,17 @@ class ConnectionRequest {
       viewerUid: viewerUid,
       invitationId: invitationId,
       ownerUid: ownerUid,
-      viewerDisplayName:
-          (data['viewerDisplayName'] as String?) ?? 'Family member',
+      viewerDisplayName: familyPersonLabel(
+        displayName: data['viewerDisplayName'],
+        email: data['viewerEmail'],
+      ),
       viewerEmail: (data['viewerEmail'] as String?) ?? '',
+      deviceId: data['deviceId'] as String?,
       requestedAt: _toDateTime(data['requestedAt']) ?? DateTime.now().toUtc(),
       status: (data['status'] as String?) ?? 'pending',
       relationship: relationship,
       requestedCapabilities: capabilities,
+      alreadyPending: alreadyPending,
     );
   }
 
@@ -552,6 +576,7 @@ class FamilyConnection {
   LocationFreshness get freshness {
     final state = presence?.sharingState ?? SharingState.notConfigured;
     if (state == SharingState.paused) return LocationFreshness.paused;
+    if (state == SharingState.stopped) return LocationFreshness.notConnected;
     if (state == SharingState.permissionDisabled) {
       return LocationFreshness.permissionDisabled;
     }
@@ -581,7 +606,7 @@ class LocationFreshnessEvaluator {
     required DateTime syncedAt,
     required DateTime now,
   }) {
-    final reference = capturedAt.isAfter(syncedAt) ? capturedAt : syncedAt;
+    final reference = capturedAt.isBefore(syncedAt) ? capturedAt : syncedAt;
     final age = now.difference(reference);
     if (age <= freshWindow) return LocationFreshness.fresh;
     if (age <= staleWindow) return LocationFreshness.stale;

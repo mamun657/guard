@@ -110,6 +110,12 @@ abstract class AppLocalizations {
   /// **'UNDERSTAND BEFORE YOU TRUST.'**
   String get brandTagline;
 
+  /// No description provided for @loadingDefaultMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading...'**
+  String get loadingDefaultMessage;
+
   /// No description provided for @splashCredit.
   ///
   /// In en, this message translates to:
@@ -548,6 +554,30 @@ abstract class AppLocalizations {
   /// **'Quick Actions'**
   String get quickActions;
 
+  /// No description provided for @familySafetyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Safety'**
+  String get familySafetyTitle;
+
+  /// No description provided for @familySafetySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Location, battery & trusted family'**
+  String get familySafetySubtitle;
+
+  /// No description provided for @careSignalSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice assistance & family help'**
+  String get careSignalSubtitle;
+
+  /// No description provided for @openFeature.
+  ///
+  /// In en, this message translates to:
+  /// **'Open'**
+  String get openFeature;
+
   /// No description provided for @seeAll.
   ///
   /// In en, this message translates to:
@@ -703,6 +733,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'History'**
   String get navHistory;
+
+  /// No description provided for @navFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Family'**
+  String get navFamily;
+
+  /// No description provided for @navCareSignal.
+  ///
+  /// In en, this message translates to:
+  /// **'Care Signal'**
+  String get navCareSignal;
 
   /// No description provided for @navProfile.
   ///
@@ -1274,6 +1316,18 @@ abstract class AppLocalizations {
   /// **'No invitation found for that code.'**
   String get careInvitationNotFound;
 
+  /// No description provided for @careInvitationMalformed.
+  ///
+  /// In en, this message translates to:
+  /// **'That invitation code is not valid.'**
+  String get careInvitationMalformed;
+
+  /// No description provided for @careInvitationLookupFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The invitation could not be checked right now. Please try again.'**
+  String get careInvitationLookupFailed;
+
   /// No description provided for @careInvitationCopied.
   ///
   /// In en, this message translates to:
@@ -1361,7 +1415,7 @@ abstract class AppLocalizations {
   /// No description provided for @careAcceptInvitation.
   ///
   /// In en, this message translates to:
-  /// **'Accept Invitation'**
+  /// **'Request Access'**
   String get careAcceptInvitation;
 
   /// No description provided for @careDeclineInvitation.
@@ -1403,7 +1457,7 @@ abstract class AppLocalizations {
   /// No description provided for @careRequestAlreadyPending.
   ///
   /// In en, this message translates to:
-  /// **'A request is already waiting for the device owner\'s approval.'**
+  /// **'Your request is waiting for the device owner\'s approval.'**
   String get careRequestAlreadyPending;
 
   /// No description provided for @careRequestAlreadyProcessed.
@@ -1417,6 +1471,30 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'You do not have permission to send this request.'**
   String get careInvitationPermissionDenied;
+
+  /// No description provided for @careApprovalPermissionDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Could not approve this family request. Verify you are signed in as the device owner and try again.'**
+  String get careApprovalPermissionDenied;
+
+  /// No description provided for @careSharingStale.
+  ///
+  /// In en, this message translates to:
+  /// **'Sharing stale'**
+  String get careSharingStale;
+
+  /// No description provided for @careLiveBattery.
+  ///
+  /// In en, this message translates to:
+  /// **'Live battery'**
+  String get careLiveBattery;
+
+  /// No description provided for @careLastSyncedBattery.
+  ///
+  /// In en, this message translates to:
+  /// **'Last synced battery'**
+  String get careLastSyncedBattery;
 
   /// No description provided for @careWhatYouCanSee.
   ///
@@ -2005,6 +2083,984 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Connected since {date}'**
   String careMemberSince(String date);
+
+  /// No description provided for @careSignalTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Care Signal'**
+  String get careSignalTitle;
+
+  /// No description provided for @careSignalTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Voice to understand, confirm, then reach your family.'**
+  String get careSignalTagline;
+
+  /// No description provided for @careSignalNeedHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'Need Help'**
+  String get careSignalNeedHelp;
+
+  /// No description provided for @careSignalNeedHelpSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Speak your request. Care Signal AI will prepare a verified help summary for you to review.'**
+  String get careSignalNeedHelpSubtitle;
+
+  /// No description provided for @careSignalPrivacyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'Your recording is processed by Meta AI only after you give permission. Nothing is shared with your family until you confirm.'**
+  String get careSignalPrivacyNote;
+
+  /// No description provided for @careSignalRecordingTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Recording your request'**
+  String get careSignalRecordingTitle;
+
+  /// No description provided for @careSignalRecordingHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap the microphone and speak clearly in Bengali or English.'**
+  String get careSignalRecordingHint;
+
+  /// No description provided for @careSignalConsentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow Meta AI to process this recording?'**
+  String get careSignalConsentTitle;
+
+  /// No description provided for @careSignalConsentBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The recording will be sent securely to Meta Voice Transcribe to turn your speech into text. The audio is not stored after transcription.'**
+  String get careSignalConsentBody;
+
+  /// No description provided for @careSignalConsentAllow.
+  ///
+  /// In en, this message translates to:
+  /// **'Allow and start recording'**
+  String get careSignalConsentAllow;
+
+  /// No description provided for @careSignalConsentDeny.
+  ///
+  /// In en, this message translates to:
+  /// **'Not now'**
+  String get careSignalConsentDeny;
+
+  /// No description provided for @careSignalStopRecording.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop'**
+  String get careSignalStopRecording;
+
+  /// No description provided for @careSignalCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get careSignalCancel;
+
+  /// No description provided for @careSignalMicDenied.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone permission was denied. Enable it in Android settings to record a request.'**
+  String get careSignalMicDenied;
+
+  /// No description provided for @careSignalEmptyRecording.
+  ///
+  /// In en, this message translates to:
+  /// **'No speech was captured. Please record again.'**
+  String get careSignalEmptyRecording;
+
+  /// No description provided for @careSignalTranscribing.
+  ///
+  /// In en, this message translates to:
+  /// **'Transcribing your voice'**
+  String get careSignalTranscribing;
+
+  /// No description provided for @careSignalTranscribingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Meta Voice Transcribe is turning your speech into text.'**
+  String get careSignalTranscribingBody;
+
+  /// No description provided for @careSignalTranscriptTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Check your words'**
+  String get careSignalTranscriptTitle;
+
+  /// No description provided for @careSignalTranscriptHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Correct any mistakes before continuing.'**
+  String get careSignalTranscriptHint;
+
+  /// No description provided for @careSignalTranscriptLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Your request'**
+  String get careSignalTranscriptLabel;
+
+  /// No description provided for @careSignalEditTranscript.
+  ///
+  /// In en, this message translates to:
+  /// **'Edit transcript'**
+  String get careSignalEditTranscript;
+
+  /// No description provided for @careSignalContinue.
+  ///
+  /// In en, this message translates to:
+  /// **'Continue'**
+  String get careSignalContinue;
+
+  /// No description provided for @careSignalProcessing.
+  ///
+  /// In en, this message translates to:
+  /// **'Care Signal AI is thinking'**
+  String get careSignalProcessing;
+
+  /// No description provided for @careSignalProcessingBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Reading your request and loading only the family data you already approved.'**
+  String get careSignalProcessingBody;
+
+  /// No description provided for @careSignalStepUnderstand.
+  ///
+  /// In en, this message translates to:
+  /// **'Understanding your request'**
+  String get careSignalStepUnderstand;
+
+  /// No description provided for @careSignalStepContacts.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking approved family contacts'**
+  String get careSignalStepContacts;
+
+  /// No description provided for @careSignalStepLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Fetching authorized location status'**
+  String get careSignalStepLocation;
+
+  /// No description provided for @careSignalStepBattery.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking battery status'**
+  String get careSignalStepBattery;
+
+  /// No description provided for @careSignalStepSummary.
+  ///
+  /// In en, this message translates to:
+  /// **'Preparing the help summary'**
+  String get careSignalStepSummary;
+
+  /// No description provided for @careSignalSummaryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Help summary'**
+  String get careSignalSummaryTitle;
+
+  /// No description provided for @careSignalSummaryBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Review everything below before it is sent to your family.'**
+  String get careSignalSummaryBody;
+
+  /// No description provided for @careSignalOriginalStatement.
+  ///
+  /// In en, this message translates to:
+  /// **'Your original statement'**
+  String get careSignalOriginalStatement;
+
+  /// No description provided for @careSignalAiInterpretation.
+  ///
+  /// In en, this message translates to:
+  /// **'AI assistance summary'**
+  String get careSignalAiInterpretation;
+
+  /// No description provided for @careSignalLastKnownLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'Last known location'**
+  String get careSignalLastKnownLocation;
+
+  /// No description provided for @careSignalLocationUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'No authorized location is available right now.'**
+  String get careSignalLocationUnavailable;
+
+  /// No description provided for @careSignalLocationFresh.
+  ///
+  /// In en, this message translates to:
+  /// **'Recently updated'**
+  String get careSignalLocationFresh;
+
+  /// No description provided for @careSignalLocationStale.
+  ///
+  /// In en, this message translates to:
+  /// **'Older location'**
+  String get careSignalLocationStale;
+
+  /// No description provided for @careSignalLocationPaused.
+  ///
+  /// In en, this message translates to:
+  /// **'Location sharing is paused'**
+  String get careSignalLocationPaused;
+
+  /// No description provided for @careSignalLocationSharingDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Location sharing is turned off'**
+  String get careSignalLocationSharingDisabled;
+
+  /// No description provided for @careSignalBatteryInfo.
+  ///
+  /// In en, this message translates to:
+  /// **'Last reported battery'**
+  String get careSignalBatteryInfo;
+
+  /// No description provided for @careSignalBatteryUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Battery information is not available.'**
+  String get careSignalBatteryUnavailable;
+
+  /// No description provided for @careSignalSuggestedActions.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggested safe actions'**
+  String get careSignalSuggestedActions;
+
+  /// No description provided for @careSignalRecipients.
+  ///
+  /// In en, this message translates to:
+  /// **'Who should be notified'**
+  String get careSignalRecipients;
+
+  /// No description provided for @careSignalNoRecipients.
+  ///
+  /// In en, this message translates to:
+  /// **'No approved family member is available to receive help requests yet.'**
+  String get careSignalNoRecipients;
+
+  /// No description provided for @careSignalNoRecipientsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'On the location owner\'s phone, open Family Safety, approve the pending request, and keep the family connection active. This request cannot be sent until that approval is verified.'**
+  String get careSignalNoRecipientsBody;
+
+  /// No description provided for @careSignalConfirmSendTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Send this help request?'**
+  String get careSignalConfirmSendTitle;
+
+  /// No description provided for @careSignalConfirmSendBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Your family member will see your message, the AI summary, and the verified information listed here.'**
+  String get careSignalConfirmSendBody;
+
+  /// No description provided for @careSignalSendNow.
+  ///
+  /// In en, this message translates to:
+  /// **'Send now'**
+  String get careSignalSendNow;
+
+  /// No description provided for @careSignalSending.
+  ///
+  /// In en, this message translates to:
+  /// **'Sending'**
+  String get careSignalSending;
+
+  /// No description provided for @careSignalSentTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Help request saved'**
+  String get careSignalSentTitle;
+
+  /// No description provided for @careSignalSentBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The request was saved. This does not confirm that the receiver has seen it.'**
+  String get careSignalSentBody;
+
+  /// No description provided for @careSignalSavedFor.
+  ///
+  /// In en, this message translates to:
+  /// **'Request saved for {name}. It remains available in their incoming requests if push notification is missed.'**
+  String careSignalSavedFor(String name);
+
+  /// No description provided for @careSignalNotificationSubmitted.
+  ///
+  /// In en, this message translates to:
+  /// **'FCM accepted the notification submission; this does not confirm delivery.'**
+  String get careSignalNotificationSubmitted;
+
+  /// No description provided for @careSignalNotificationNotSubmitted.
+  ///
+  /// In en, this message translates to:
+  /// **'Notification was not submitted. The saved request remains available in the inbox.'**
+  String get careSignalNotificationNotSubmitted;
+
+  /// No description provided for @careSignalReceiverAcknowledged.
+  ///
+  /// In en, this message translates to:
+  /// **'The receiver acknowledged the request.'**
+  String get careSignalReceiverAcknowledged;
+
+  /// No description provided for @careSignalApprovedRecipient.
+  ///
+  /// In en, this message translates to:
+  /// **'Approved'**
+  String get careSignalApprovedRecipient;
+
+  /// No description provided for @careSignalSuggestedMatch.
+  ///
+  /// In en, this message translates to:
+  /// **'Suggested from your request; please confirm'**
+  String get careSignalSuggestedMatch;
+
+  /// No description provided for @careSignalStatusNew.
+  ///
+  /// In en, this message translates to:
+  /// **'New'**
+  String get careSignalStatusNew;
+
+  /// No description provided for @careSignalStatusSaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Saved'**
+  String get careSignalStatusSaved;
+
+  /// No description provided for @careSignalStatusNotificationSubmitted.
+  ///
+  /// In en, this message translates to:
+  /// **'FCM accepted'**
+  String get careSignalStatusNotificationSubmitted;
+
+  /// No description provided for @careSignalInboxTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Family Help Inbox'**
+  String get careSignalInboxTitle;
+
+  /// No description provided for @careSignalInboxEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No help requests yet.'**
+  String get careSignalInboxEmpty;
+
+  /// No description provided for @careSignalInboxEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'When a family member asks for help, it will appear here.'**
+  String get careSignalInboxEmptyBody;
+
+  /// No description provided for @careSignalRequestFrom.
+  ///
+  /// In en, this message translates to:
+  /// **'From {name}'**
+  String careSignalRequestFrom(String name);
+
+  /// No description provided for @careSignalCallMember.
+  ///
+  /// In en, this message translates to:
+  /// **'Call family member'**
+  String get careSignalCallMember;
+
+  /// No description provided for @careSignalViewLocation.
+  ///
+  /// In en, this message translates to:
+  /// **'View last known location'**
+  String get careSignalViewLocation;
+
+  /// No description provided for @careSignalAcknowledge.
+  ///
+  /// In en, this message translates to:
+  /// **'Acknowledge help'**
+  String get careSignalAcknowledge;
+
+  /// No description provided for @careSignalAcknowledged.
+  ///
+  /// In en, this message translates to:
+  /// **'Request acknowledged'**
+  String get careSignalAcknowledged;
+
+  /// No description provided for @careSignalAcknowledgedBody.
+  ///
+  /// In en, this message translates to:
+  /// **'The requester has been notified that you received their request.'**
+  String get careSignalAcknowledgedBody;
+
+  /// No description provided for @careSignalStatusSent.
+  ///
+  /// In en, this message translates to:
+  /// **'Sent'**
+  String get careSignalStatusSent;
+
+  /// No description provided for @careSignalStatusAcknowledged.
+  ///
+  /// In en, this message translates to:
+  /// **'Acknowledged'**
+  String get careSignalStatusAcknowledged;
+
+  /// No description provided for @careSignalStatusPending.
+  ///
+  /// In en, this message translates to:
+  /// **'Pending'**
+  String get careSignalStatusPending;
+
+  /// No description provided for @careSignalResponseTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Help request details'**
+  String get careSignalResponseTitle;
+
+  /// No description provided for @careSignalCreatedAt.
+  ///
+  /// In en, this message translates to:
+  /// **'Created at {date}'**
+  String careSignalCreatedAt(String date);
+
+  /// No description provided for @careSignalNotAvailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Not available'**
+  String get careSignalNotAvailable;
+
+  /// No description provided for @careSignalBackToInbox.
+  ///
+  /// In en, this message translates to:
+  /// **'Back to inbox'**
+  String get careSignalBackToInbox;
+
+  /// No description provided for @careSignalFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Something went wrong'**
+  String get careSignalFailed;
+
+  /// No description provided for @careSignalTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Try again'**
+  String get careSignalTryAgain;
+
+  /// No description provided for @careSignalLoadingData.
+  ///
+  /// In en, this message translates to:
+  /// **'Loading authorized data'**
+  String get careSignalLoadingData;
+
+  /// No description provided for @careSignalAwaitingConfirmation.
+  ///
+  /// In en, this message translates to:
+  /// **'Awaiting your confirmation'**
+  String get careSignalAwaitingConfirmation;
+
+  /// No description provided for @careSignalCancelled.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancelled'**
+  String get careSignalCancelled;
+
+  /// No description provided for @careSignalRetry.
+  ///
+  /// In en, this message translates to:
+  /// **'Start over'**
+  String get careSignalRetry;
+
+  /// No description provided for @careSignalSentRequests.
+  ///
+  /// In en, this message translates to:
+  /// **'My sent requests'**
+  String get careSignalSentRequests;
+
+  /// No description provided for @careSignalSentRequestsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'You have not sent any help request yet.'**
+  String get careSignalSentRequestsEmpty;
+
+  /// No description provided for @careSignalSentRequestsEmptyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'When you ask for help, the request and its status will be listed here.'**
+  String get careSignalSentRequestsEmptyBody;
+
+  /// No description provided for @careSignalConfirm.
+  ///
+  /// In en, this message translates to:
+  /// **'OK'**
+  String get careSignalConfirm;
+
+  /// No description provided for @careSignalRequestTypeLost.
+  ///
+  /// In en, this message translates to:
+  /// **'Lost'**
+  String get careSignalRequestTypeLost;
+
+  /// No description provided for @careSignalRequestTypeEmergency.
+  ///
+  /// In en, this message translates to:
+  /// **'Urgent'**
+  String get careSignalRequestTypeEmergency;
+
+  /// No description provided for @careSignalRequestTypeCheckIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Check-in'**
+  String get careSignalRequestTypeCheckIn;
+
+  /// No description provided for @careSignalRequestTypeGeneral.
+  ///
+  /// In en, this message translates to:
+  /// **'General request'**
+  String get careSignalRequestTypeGeneral;
+
+  /// No description provided for @careSignalRequestTypeUnknown.
+  ///
+  /// In en, this message translates to:
+  /// **'Request'**
+  String get careSignalRequestTypeUnknown;
+
+  /// No description provided for @careSignalSenderLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Requested by'**
+  String get careSignalSenderLabel;
+
+  /// No description provided for @careSignalSentByYou.
+  ///
+  /// In en, this message translates to:
+  /// **'You sent this request'**
+  String get careSignalSentByYou;
+
+  /// No description provided for @careSignalRecipientLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Notified'**
+  String get careSignalRecipientLabel;
+
+  /// No description provided for @careSignalRequestTypeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Type of request'**
+  String get careSignalRequestTypeLabel;
+
+  /// No description provided for @careSignalNoPhoneNumber.
+  ///
+  /// In en, this message translates to:
+  /// **'No phone number is shared for this request.'**
+  String get careSignalNoPhoneNumber;
+
+  /// No description provided for @careSignalFamilyMember.
+  ///
+  /// In en, this message translates to:
+  /// **'Family member'**
+  String get careSignalFamilyMember;
+
+  /// No description provided for @silentSpeakTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Silent Speak'**
+  String get silentSpeakTitle;
+
+  /// No description provided for @silentSpeakSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Communicate and ask for help without communication barriers.'**
+  String get silentSpeakSubtitle;
+
+  /// No description provided for @silentSpeakModeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'How would you like to communicate?'**
+  String get silentSpeakModeTitle;
+
+  /// No description provided for @silentSpeakModeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose one mode. You can change it at any time.'**
+  String get silentSpeakModeHint;
+
+  /// No description provided for @silentSpeakSpeakMode.
+  ///
+  /// In en, this message translates to:
+  /// **'I Cannot Speak'**
+  String get silentSpeakSpeakMode;
+
+  /// No description provided for @silentSpeakSpeakDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Express needs using pictures and large messages.'**
+  String get silentSpeakSpeakDescription;
+
+  /// No description provided for @silentSpeakListenMode.
+  ///
+  /// In en, this message translates to:
+  /// **'I Cannot Hear'**
+  String get silentSpeakListenMode;
+
+  /// No description provided for @silentSpeakListenDescription.
+  ///
+  /// In en, this message translates to:
+  /// **'Read what another person says.'**
+  String get silentSpeakListenDescription;
+
+  /// No description provided for @silentSpeakRememberMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Remember my preferred mode on this device'**
+  String get silentSpeakRememberMode;
+
+  /// No description provided for @silentSpeakSpeakTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Speak for Me'**
+  String get silentSpeakSpeakTitle;
+
+  /// No description provided for @silentSpeakSpeakHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose one or more picture cards to build a simple message.'**
+  String get silentSpeakSpeakHint;
+
+  /// No description provided for @silentSpeakIntentLost.
+  ///
+  /// In en, this message translates to:
+  /// **'I am lost'**
+  String get silentSpeakIntentLost;
+
+  /// No description provided for @silentSpeakIntentUnwell.
+  ///
+  /// In en, this message translates to:
+  /// **'I feel unwell'**
+  String get silentSpeakIntentUnwell;
+
+  /// No description provided for @silentSpeakIntentWater.
+  ///
+  /// In en, this message translates to:
+  /// **'I need water'**
+  String get silentSpeakIntentWater;
+
+  /// No description provided for @silentSpeakIntentHelp.
+  ///
+  /// In en, this message translates to:
+  /// **'I need help'**
+  String get silentSpeakIntentHelp;
+
+  /// No description provided for @silentSpeakIntentFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Contact my family'**
+  String get silentSpeakIntentFamily;
+
+  /// No description provided for @silentSpeakIntentHome.
+  ///
+  /// In en, this message translates to:
+  /// **'I want to go home'**
+  String get silentSpeakIntentHome;
+
+  /// No description provided for @silentSpeakSelectPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a message card to begin.'**
+  String get silentSpeakSelectPrompt;
+
+  /// No description provided for @silentSpeakShowMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Show message'**
+  String get silentSpeakShowMessage;
+
+  /// No description provided for @silentSpeakAskFamily.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask Family for Help'**
+  String get silentSpeakAskFamily;
+
+  /// No description provided for @silentSpeakMessageTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Show this message'**
+  String get silentSpeakMessageTitle;
+
+  /// No description provided for @silentSpeakMessageHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Show your screen to the other person.'**
+  String get silentSpeakMessageHint;
+
+  /// No description provided for @silentSpeakCopy.
+  ///
+  /// In en, this message translates to:
+  /// **'Copy message'**
+  String get silentSpeakCopy;
+
+  /// No description provided for @silentSpeakCopied.
+  ///
+  /// In en, this message translates to:
+  /// **'Message copied'**
+  String get silentSpeakCopied;
+
+  /// No description provided for @silentSpeakReadAloudDisabled.
+  ///
+  /// In en, this message translates to:
+  /// **'Read aloud is unavailable on this device.'**
+  String get silentSpeakReadAloudDisabled;
+
+  /// No description provided for @silentSpeakListenTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Listen & Understand'**
+  String get silentSpeakListenTitle;
+
+  /// No description provided for @silentSpeakListenHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Record only when you tap Start Listening. The original transcript stays on this device unless you choose to share a separate help message.'**
+  String get silentSpeakListenHint;
+
+  /// No description provided for @silentSpeakStartListening.
+  ///
+  /// In en, this message translates to:
+  /// **'Start Listening'**
+  String get silentSpeakStartListening;
+
+  /// No description provided for @silentSpeakStopRecording.
+  ///
+  /// In en, this message translates to:
+  /// **'Stop recording'**
+  String get silentSpeakStopRecording;
+
+  /// No description provided for @silentSpeakMicrophoneActive.
+  ///
+  /// In en, this message translates to:
+  /// **'Microphone active'**
+  String get silentSpeakMicrophoneActive;
+
+  /// No description provided for @silentSpeakTranscriptTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'What the other person said'**
+  String get silentSpeakTranscriptTitle;
+
+  /// No description provided for @silentSpeakTranscriptEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'Your transcript will appear here. You can also type it.'**
+  String get silentSpeakTranscriptEmpty;
+
+  /// No description provided for @silentSpeakTypeMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Please type the message'**
+  String get silentSpeakTypeMessage;
+
+  /// No description provided for @silentSpeakTypeHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask the other person to type what they said.'**
+  String get silentSpeakTypeHint;
+
+  /// No description provided for @silentSpeakSpeakerPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'I cannot hear. Please type your message.'**
+  String get silentSpeakSpeakerPrompt;
+
+  /// No description provided for @silentSpeakShowSpeakerPrompt.
+  ///
+  /// In en, this message translates to:
+  /// **'Show this to the speaker'**
+  String get silentSpeakShowSpeakerPrompt;
+
+  /// No description provided for @silentSpeakMyResponse.
+  ///
+  /// In en, this message translates to:
+  /// **'My response'**
+  String get silentSpeakMyResponse;
+
+  /// No description provided for @silentSpeakResponseHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Type a reply, or speak naturally.'**
+  String get silentSpeakResponseHint;
+
+  /// No description provided for @silentSpeakTryAgain.
+  ///
+  /// In en, this message translates to:
+  /// **'Repeat / Try Again'**
+  String get silentSpeakTryAgain;
+
+  /// No description provided for @silentSpeakPrivacyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Before recording'**
+  String get silentSpeakPrivacyTitle;
+
+  /// No description provided for @silentSpeakPrivacyBody.
+  ///
+  /// In en, this message translates to:
+  /// **'With your permission, this short recording is sent securely to Meta Voice Transcribe. It is not saved to your family account. You can choose typing instead.'**
+  String get silentSpeakPrivacyBody;
+
+  /// No description provided for @silentSpeakFamilyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask your family for help'**
+  String get silentSpeakFamilyTitle;
+
+  /// No description provided for @silentSpeakFamilyHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Write only what you want to share. Your conversation transcript and recording will not be sent.'**
+  String get silentSpeakFamilyHint;
+
+  /// No description provided for @silentSpeakFamilyMessageLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Message to your family'**
+  String get silentSpeakFamilyMessageLabel;
+
+  /// No description provided for @silentSpeakFamilyMessageHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a short message'**
+  String get silentSpeakFamilyMessageHint;
+
+  /// No description provided for @silentSpeakFamilyPreview.
+  ///
+  /// In en, this message translates to:
+  /// **'Review request'**
+  String get silentSpeakFamilyPreview;
+
+  /// No description provided for @silentSpeakFamilyRecipients.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose an approved family member'**
+  String get silentSpeakFamilyRecipients;
+
+  /// No description provided for @silentSpeakFamilyLoading.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking approved family members'**
+  String get silentSpeakFamilyLoading;
+
+  /// No description provided for @silentSpeakFamilyNoRecipients.
+  ///
+  /// In en, this message translates to:
+  /// **'No approved family members are available for help requests.'**
+  String get silentSpeakFamilyNoRecipients;
+
+  /// No description provided for @silentSpeakFamilySignIn.
+  ///
+  /// In en, this message translates to:
+  /// **'Sign in to ask family for help.'**
+  String get silentSpeakFamilySignIn;
+
+  /// No description provided for @silentSpeakFamilyPrivacy.
+  ///
+  /// In en, this message translates to:
+  /// **'Only your confirmed message and chosen recipient will be sent. Location and audio are not attached.'**
+  String get silentSpeakFamilyPrivacy;
+
+  /// No description provided for @silentSpeakFamilyConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Send this message?'**
+  String get silentSpeakFamilyConfirmTitle;
+
+  /// No description provided for @silentSpeakFamilyConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Review the recipient and exact message. Nothing is sent until you confirm.'**
+  String get silentSpeakFamilyConfirmBody;
+
+  /// No description provided for @silentSpeakFamilySend.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm and send'**
+  String get silentSpeakFamilySend;
+
+  /// No description provided for @silentSpeakFamilySending.
+  ///
+  /// In en, this message translates to:
+  /// **'Saving request'**
+  String get silentSpeakFamilySending;
+
+  /// No description provided for @silentSpeakFamilySaved.
+  ///
+  /// In en, this message translates to:
+  /// **'Request saved on the server.'**
+  String get silentSpeakFamilySaved;
+
+  /// No description provided for @silentSpeakFamilyAcknowledged.
+  ///
+  /// In en, this message translates to:
+  /// **'Your family member acknowledged the request.'**
+  String get silentSpeakFamilyAcknowledged;
+
+  /// No description provided for @silentSpeakFamilyNotificationSubmitted.
+  ///
+  /// In en, this message translates to:
+  /// **'The notification service accepted the request; this does not confirm delivery or that it was seen.'**
+  String get silentSpeakFamilyNotificationSubmitted;
+
+  /// No description provided for @silentSpeakFamilyNotificationFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The request is saved, but notification was not accepted. Your family member can still find it in their inbox.'**
+  String get silentSpeakFamilyNotificationFailed;
+
+  /// No description provided for @silentSpeakFamilyRequestFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'The request could not be saved. Check your connection and try again.'**
+  String get silentSpeakFamilyRequestFailed;
+
+  /// No description provided for @silentSpeakApiUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Online transcription is unavailable. You can type the message instead.'**
+  String get silentSpeakApiUnavailable;
+
+  /// No description provided for @silentSpeakAudioUnsupported.
+  ///
+  /// In en, this message translates to:
+  /// **'This device cannot record the required audio format. Please type the message instead.'**
+  String get silentSpeakAudioUnsupported;
+
+  /// No description provided for @silentSpeakNoSpeech.
+  ///
+  /// In en, this message translates to:
+  /// **'No speech was detected. Try again or type the message.'**
+  String get silentSpeakNoSpeech;
+
+  /// No description provided for @silentSpeakEnterMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a short message before continuing.'**
+  String get silentSpeakEnterMessage;
+
+  /// No description provided for @silentSpeakBack.
+  ///
+  /// In en, this message translates to:
+  /// **'Back'**
+  String get silentSpeakBack;
+
+  /// No description provided for @silentSpeakChangeMode.
+  ///
+  /// In en, this message translates to:
+  /// **'Change mode'**
+  String get silentSpeakChangeMode;
 }
 
 class _AppLocalizationsDelegate

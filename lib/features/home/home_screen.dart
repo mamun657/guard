@@ -18,12 +18,14 @@ class HomeScreen extends StatefulWidget {
     required this.prefs,
     required this.localeController,
     required this.onSignedOut,
+    required this.beforeSignOut,
   });
 
   final AuthService authService;
   final LocalPrefs prefs;
   final LocaleController localeController;
   final VoidCallback onSignedOut;
+  final Future<void> Function() beforeSignOut;
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -48,6 +50,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Future<void> _handleSignOut() async {
     await widget.prefs.clearGuest();
     if (!_isGuest && widget.authService.currentUser != null) {
+      await widget.beforeSignOut();
       await widget.authService.signOut();
     }
     if (!mounted) return;
@@ -57,58 +60,71 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context)!;
-    final tabs = <_TabSpec>[
-      _TabSpec(
-        body: DashboardScreen(
-          displayName: _displayName,
-          onMenuPressed: () => _showInfo(
-            context,
-            l10n.snackMenuTitle,
-            l10n.snackMenuBody,
-          ),
-          onNotificationsPressed: () => _showInfo(
-            context,
-            l10n.snackNotificationsTitle,
-            l10n.snackNotificationsBody,
-          ),
-          onFamilySafetyPressed: () {
-            FamilySafetyLauncher.open(
-              context,
-              isGuest: _isGuest,
-              prefs: widget.prefs.preferences,
-              auth: FirebaseAuth.instance,
-              firestore: FirebaseFirestore.instance,
-            );
-          },
-        ),
-      ),
-      _TabSpec(body: const AnalyzeCallPage()),
-      _TabSpec(body: const AnalyzePage()),
-      _TabSpec(body: const HistoryPage()),
-      _TabSpec(
-        body: ProfilePage(
-          displayName: _displayName,
-          email: _email,
-          isGuest: _isGuest,
-          localeController: widget.localeController,
-          onSignOut: _handleSignOut,
-        ),
-      ),
-    ];
-
     return Scaffold(
       body: LocaleControllerScope(
         controller: widget.localeController,
-        child: IndexedStack(
-          index: _index,
-          children: tabs.map((t) => t.body).toList(),
-        ),
+        child: _index == 3
+            ? ProfilePage(
+                displayName: _displayName,
+                email: _email,
+                isGuest: _isGuest,
+                localeController: widget.localeController,
+                onSignOut: _handleSignOut,
+              )
+            : DashboardScreen(
+                displayName: _displayName,
+                onNotificationsPressed: () => _showInfo(
+                  context,
+                  l10n.snackNotificationsTitle,
+                  l10n.snackNotificationsBody,
+                ),
+                onFamilySafetyPressed: _openFamilySafety,
+                onCareSignalPressed: _openCareSignal,
+                onSilentSpeakPressed: _openSilentSpeak,
+              ),
       ),
       bottomNavigationBar: _BottomNav(
         index: _index,
-        onChanged: (i) => setState(() => _index = i),
+        onChanged: (i) {
+          if (i == 1) {
+            _openFamilySafety();
+          } else if (i == 2) {
+            _openCareSignal();
+          } else {
+            setState(() => _index = i);
+          }
+        },
       ),
     );
+  }
+
+  Future<void> _openFamilySafety() async {
+    await FamilySafetyLauncher.open(
+      context,
+      isGuest: _isGuest,
+      prefs: widget.prefs.preferences,
+      auth: FirebaseAuth.instance,
+      firestore: FirebaseFirestore.instance,
+    );
+    if (mounted) setState(() => _index = 0);
+  }
+
+  Future<void> _openCareSignal() async {
+    await FamilySafetyLauncher.openCareSignal(
+      context,
+      prefs: widget.prefs.preferences,
+      auth: FirebaseAuth.instance,
+    );
+    if (mounted) setState(() => _index = 0);
+  }
+
+  Future<void> _openSilentSpeak() async {
+    await FamilySafetyLauncher.openSilentSpeak(
+      context,
+      prefs: widget.prefs.preferences,
+      auth: FirebaseAuth.instance,
+    );
+    if (mounted) setState(() => _index = 0);
   }
 
   void _showInfo(BuildContext context, String title, String message) {
@@ -130,21 +146,13 @@ class _HomeScreenState extends State<HomeScreen> {
             const SizedBox(height: 2),
             Text(
               message,
-              style: const TextStyle(
-                color: Colors.white70,
-                fontSize: 12,
-              ),
+              style: const TextStyle(color: Colors.white70, fontSize: 12),
             ),
           ],
         ),
       ),
     );
   }
-}
-
-class _TabSpec {
-  const _TabSpec({required this.body});
-  final Widget body;
 }
 
 class _BottomNav extends StatelessWidget {
@@ -163,19 +171,14 @@ class _BottomNav extends StatelessWidget {
         label: l10n.navHome,
       ),
       _NavItemData(
-        icon: Icons.shield_rounded,
-        outlined: Icons.shield_outlined,
-        label: l10n.navProtect,
+        icon: Icons.family_restroom_rounded,
+        outlined: Icons.family_restroom_outlined,
+        label: l10n.familySafetyTitle,
       ),
       _NavItemData(
-        icon: Icons.center_focus_strong_rounded,
-        outlined: Icons.center_focus_strong_outlined,
-        label: l10n.navAnalyze,
-      ),
-      _NavItemData(
-        icon: Icons.history_rounded,
-        outlined: Icons.history_outlined,
-        label: l10n.navHistory,
+        icon: Icons.mic_rounded,
+        outlined: Icons.mic_none_rounded,
+        label: l10n.careSignalTitle,
       ),
       _NavItemData(
         icon: Icons.person_rounded,
@@ -254,11 +257,7 @@ class _NavItem extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             mainAxisSize: MainAxisSize.min,
             children: [
-              Icon(
-                active ? data.icon : data.outlined,
-                size: 22,
-                color: fg,
-              ),
+              Icon(active ? data.icon : data.outlined, size: 22, color: fg),
               const SizedBox(height: 3),
               Flexible(
                 child: Text(

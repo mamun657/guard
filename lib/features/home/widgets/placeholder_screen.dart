@@ -222,19 +222,22 @@ class ProfilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final l10n = AppLocalizations.of(context)!;
+    final userName = displayName.trim().isNotEmpty ? displayName : 'AmarGuard user';
+    final userEmail = isGuest ? l10n.profileGuestBadge : email;
+
     return SafeArea(
       child: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
-        padding: const EdgeInsets.fromLTRB(20, 12, 20, 32),
+        padding: const EdgeInsets.fromLTRB(20, 16, 20, 32),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(height: 16),
             Text(
               l10n.profileTitle,
               style: theme.textTheme.headlineLarge?.copyWith(
-                fontSize: 26,
-                letterSpacing: -0.4,
+                fontSize: 28,
+                fontWeight: FontWeight.w800,
+                letterSpacing: -0.6,
               ),
             ),
             const SizedBox(height: 6),
@@ -243,14 +246,15 @@ class ProfilePage extends StatelessWidget {
               style: theme.textTheme.bodyMedium?.copyWith(
                 fontSize: 14,
                 color: AppColors.textSecondary,
+                height: 1.5,
               ),
             ),
-            const SizedBox(height: 24),
+            const SizedBox(height: 20),
             Container(
               padding: const EdgeInsets.fromLTRB(16, 16, 16, 16),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(20),
+                borderRadius: BorderRadius.circular(22),
                 border: Border.all(color: AppColors.border),
               ),
               child: Row(
@@ -263,9 +267,10 @@ class ProfilePage extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     child: const Center(
-                      child: Text(
-                        '👤',
-                        style: TextStyle(fontSize: 28),
+                      child: Icon(
+                        Icons.person_rounded,
+                        color: AppColors.primaryDark,
+                        size: 28,
                       ),
                     ),
                   ),
@@ -273,20 +278,19 @@ class ProfilePage extends StatelessWidget {
                   Expanded(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
-                      mainAxisSize: MainAxisSize.min,
                       children: [
                         Text(
-                          displayName,
+                          userName,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: theme.textTheme.titleLarge?.copyWith(
-                            fontSize: 17,
+                            fontSize: 18,
                             fontWeight: FontWeight.w800,
                           ),
                         ),
-                        const SizedBox(height: 2),
+                        const SizedBox(height: 4),
                         Text(
-                          isGuest ? l10n.profileGuestBadge : email,
+                          userEmail,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           style: const TextStyle(
@@ -300,31 +304,73 @@ class ProfilePage extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 14),
-            _ProfileTile(
-              icon: Icons.shield_outlined,
-              title: l10n.profileActiveProtection,
-              subtitle: isGuest
-                  ? l10n.profileActiveProtectionGuest
-                  : l10n.profileActiveProtectionUser,
+            const SizedBox(height: 18),
+            _SettingsSection(
+              title: 'Account',
+              child: _ProfileTile(
+                icon: Icons.account_circle_outlined,
+                title: isGuest ? l10n.profileGuestBadge : userEmail,
+                subtitle: 'Account details',
+              ),
             ),
-            const SizedBox(height: 10),
-            _LanguageTile(
-              currentLocale: localeController.locale,
-              title: l10n.settingsLanguage,
-              subtitle: l10n.settingsLanguageSubtitle,
+            const SizedBox(height: 18),
+            _SettingsSection(
+              title: 'Safety & Privacy',
+              child: Column(
+                children: [
+                  _ProfileTile(
+                    icon: Icons.shield_outlined,
+                    title: l10n.profileActiveProtection,
+                    subtitle: isGuest
+                        ? l10n.profileActiveProtectionGuest
+                        : l10n.profileActiveProtectionUser,
+                  ),
+                  const SizedBox(height: 10),
+                  _ProfileTile(
+                    icon: Icons.lock_outline_rounded,
+                    title: 'Privacy & Permissions',
+                    subtitle: 'Location, notifications and family access',
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 10),
-            _ProfileTile(
-              icon: Icons.history_rounded,
-              title: l10n.profileActivityHistory,
-              subtitle: l10n.profileActivityHistorySubtitle,
+            const SizedBox(height: 18),
+            _SettingsSection(
+              title: 'Preferences',
+              child: Column(
+                children: [
+                  _LanguageTile(
+                    currentLocale: localeController.locale,
+                    title: l10n.settingsLanguage,
+                    subtitle: l10n.settingsLanguageSubtitle,
+                  ),
+                  const SizedBox(height: 10),
+                  _ProfileTile(
+                    icon: Icons.accessibility_new_rounded,
+                    title: 'Accessibility Preferences',
+                    subtitle: 'Speak for Me / Listen & Understand',
+                  ),
+                ],
+              ),
             ),
-            const SizedBox(height: 10),
-            _ProfileTile(
-              icon: Icons.help_outline_rounded,
-              title: l10n.profileHelp,
-              subtitle: l10n.profileHelpSubtitle,
+            const SizedBox(height: 18),
+            _SettingsSection(
+              title: 'Activity & Support',
+              child: Column(
+                children: [
+                  _ProfileTile(
+                    icon: Icons.history_rounded,
+                    title: l10n.profileActivityHistory,
+                    subtitle: l10n.profileActivityHistorySubtitle,
+                  ),
+                  const SizedBox(height: 10),
+                  _ProfileTile(
+                    icon: Icons.help_outline_rounded,
+                    title: l10n.profileHelp,
+                    subtitle: l10n.profileHelpSubtitle,
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 24),
             SizedBox(
@@ -360,6 +406,34 @@ class ProfilePage extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class _SettingsSection extends StatelessWidget {
+  const _SettingsSection({required this.title, required this.child});
+
+  final String title;
+  final Widget child;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(left: 4, bottom: 8),
+          child: Text(
+            title,
+            style: Theme.of(context).textTheme.titleSmall?.copyWith(
+              color: AppColors.textSecondary,
+              fontWeight: FontWeight.w800,
+              letterSpacing: 0.2,
+            ),
+          ),
+        ),
+        child,
+      ],
     );
   }
 }

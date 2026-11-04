@@ -1,10 +1,11 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import '../../../l10n/generated/app_localizations.dart';
 import '../controllers/family_safety_controller.dart';
 import '../models/family_models.dart';
 import '../theme/care_colors.dart';
-import '../theme/care_theme.dart';
 import '../widgets/care_components.dart';
 import '../widgets/care_formatters.dart';
 import '../widgets/care_widgets.dart';
@@ -20,14 +21,21 @@ class FamilyMembersScreen extends StatefulWidget {
 }
 
 class _FamilyMembersScreenState extends State<FamilyMembersScreen> {
+  Timer? _refreshTimer;
+
   @override
   void initState() {
     super.initState();
     widget.controller.addListener(_onControllerChanged);
+    _refreshTimer = Timer.periodic(const Duration(seconds: 30), (_) {
+      if (mounted) setState(() {});
+    });
   }
 
   @override
   void dispose() {
+    _refreshTimer?.cancel();
+    _refreshTimer = null;
     widget.controller.removeListener(_onControllerChanged);
     super.dispose();
   }
@@ -72,7 +80,7 @@ class _FamilyMembersScreenState extends State<FamilyMembersScreen> {
                 physics: const BouncingScrollPhysics(),
                 padding: const EdgeInsets.fromLTRB(20, 8, 20, 32),
                 itemCount: connections.length,
-                separatorBuilder: (_, __) => const SizedBox(height: 10),
+                separatorBuilder: (_, _) => const SizedBox(height: 10),
                 itemBuilder: (context, index) {
                   final connection = connections[index];
                   return CareMemberCard(
@@ -90,7 +98,9 @@ class _FamilyMembersScreenState extends State<FamilyMembersScreen> {
                     isCharging: connection.presence?.isCharging ?? false,
                     lastSeenLabel: relativeTimeLabel(
                       context,
-                      connection.location?.capturedAt ??
+                      connection.presence?.lastSuccessfulUpload ??
+                          connection.location?.syncedAt ??
+                          connection.location?.capturedAt ??
                           connection.grant.grantedAt,
                     ),
                     onTap: () => _openConnection(connection),

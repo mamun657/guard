@@ -1,10 +1,7 @@
 import '../../../l10n/generated/app_localizations.dart';
 import 'family_exceptions.dart';
 
-String familySafetyErrorMessage(
-  AppLocalizations l10n,
-  Object error,
-) {
+String familySafetyErrorMessage(AppLocalizations l10n, Object error) {
   if (error is FamilySafetyException) {
     switch (error.code) {
       case FamilySafetyErrorCode.unauthenticated:
@@ -17,6 +14,8 @@ String familySafetyErrorMessage(
         return l10n.careInvitationExpired;
       case FamilySafetyErrorCode.invitationClosed:
         return l10n.careInvitationClosed;
+      case FamilySafetyErrorCode.invitationMalformed:
+        return l10n.careInvitationMalformed;
       case FamilySafetyErrorCode.invalidInvitation:
         return l10n.careInvitationInvalid;
       case FamilySafetyErrorCode.duplicateRequest:
@@ -25,6 +24,8 @@ String familySafetyErrorMessage(
         return l10n.careRequestAlreadyProcessed;
       case FamilySafetyErrorCode.permissionDenied:
         return l10n.careInvitationPermissionDenied;
+      case FamilySafetyErrorCode.approvalPermissionDenied:
+        return l10n.careApprovalPermissionDenied;
       case FamilySafetyErrorCode.network:
         return l10n.errorNoInternet;
       case FamilySafetyErrorCode.unknown:
